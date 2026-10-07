@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Matteo Barbieri Photography</title><meta name="description" content="Matteo Barbieri — fotografo live, festival, ritratti e reportage. Ferrara e Bologna. Disponibile per band, festival, testate e aziende.">
+<meta property="og:title" content="Matteo Barbieri — Fotografia live e reportage">
+<meta property="og:description" content="Concerti, festival, ritratti e lavori per brand ed eventi. Ferrara · Bologna.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://donchishotto1.github.io/matteobarbieriph/f/elephant-brain-00.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0b'/%3E%3Crect x='14' y='7' width='4' height='18' fill='%23e11322'/%3E%3C/svg%3E"></head><body>
+<meta name="description" content="Matteo Barbieri — live music & reportage photography. Bologna, Ferrara.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600&display=swap">
+<style>
+/* Layout: an editorial archive, the way working music photographers present work — an index of shows, each opening as its own sequence of large frames on black. Type stays small and quiet; the photographs carry the page. Single dark look on purpose. */
+:root{
+  --ink:#0a0a0a;       /* page black */
+  --panel:#141414;
+  --hair:#262626;
+  --paper:#ecebe8;     /* text */
+  --mute:#8a8986;      /* captions */
+  --signal:#e11322;    /* logo red, used only as a pinpoint */
+  --serif:"Instrument Serif","Times New Roman",Georgia,serif;
+  --sans:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --brand:"Anton","Impact","Arial Narrow",sans-serif;
+  --gut:clamp(16px,3.2vw,48px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{background:var(--ink)}
+body{background:var(--ink);color:var(--paper);font:400 15px/1.55 var(--sans);-webkit-font-smoothing:antialiased;margin:0}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:1px solid var(--paper);outline-offset:4px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.wrap{padding-inline:var(--gut);max-width:1760px;margin-inline:auto}
+.small{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:linear-gradient(var(--ink) 60%,rgba(10,10,10,0))}
+.top .wrap{display:flex;align-items:center;gap:24px;padding-block:20px 26px}
+.top .logo{font:400 26px/1 var(--brand);letter-spacing:.01em;display:flex;align-items:center;gap:.28em;white-space:nowrap}.top .logo i{display:inline-block;width:.2em;height:.62em;background:var(--signal)}
+.nav{margin-left:auto;display:flex;gap:28px;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.nav a{color:var(--mute);transition:color .2s}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--paper)}
+@media (max-width:560px){.top .wrap{flex-wrap:wrap;gap:10px 16px;padding-block:14px 18px}.top .logo{font-size:22px}.nav{margin-left:0;width:100%;gap:18px;font-size:11px}}
+
+/* views */
+.view{animation:fade .45s ease}
+@keyframes fade{from{opacity:.0}to{opacity:1}}
+
+/* home: opening frame */
+.open{position:relative;margin-bottom:clamp(56px,8vw,120px)}
+.open button{display:block;width:100%;cursor:pointer}
+.open{margin-inline:calc(var(--gut)*-1)}.open img{display:block;width:100%;height:clamp(320px,62vw,880px);object-fit:cover;object-position:50% 45%}.open .cap{padding-inline:var(--gut)}
+.sec{margin-top:clamp(64px,9vw,130px)}
+.open .cap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:12px}
+
+/* index */
+.index-h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1px solid var(--hair);margin-bottom:28px}
+.index-h h2{font:400 clamp(34px,4vw,56px)/1 var(--serif);margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,3vw,48px) clamp(14px,1.6vw,24px)}
+@media (max-width:1000px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+.card{display:block;text-align:left}
+.card .ph{aspect-ratio:4/5;overflow:hidden;background:var(--panel)}
+.card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.1s cubic-bezier(.2,.7,.2,1),filter .5s}
+.card:hover img{transform:scale(1.035)}
+.card .t{display:flex;justify-content:space-between;gap:12px;padding-top:12px;align-items:baseline}
+.card .t b{font:400 26px/1.05 var(--serif)}
+.card .t span{font-size:12px;color:var(--mute);letter-spacing:.06em;white-space:nowrap}
+.card .p{font-size:13px;color:var(--mute);margin-top:4px}
+
+/* series */
+.s-head{padding-block:clamp(24px,6vw,80px) clamp(36px,5vw,64px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:end}
+.s-head h1{font:400 clamp(52px,10vw,168px)/.9 var(--serif);margin:0;letter-spacing:-.01em;text-wrap:balance}
+.s-head .meta{text-align:right;display:flex;flex-direction:column;gap:6px}
+.s-head .meta .p{font-size:14px}
+.s-head .meta .n{font-size:12px;color:var(--mute);letter-spacing:.08em}
+@media (max-width:760px){.s-head{grid-template-columns:1fr}.s-head .meta{text-align:left}}
+.seq{display:flex;flex-direction:column;align-items:center;gap:clamp(48px,8vw,120px)}
+.seq figure{margin:0;width:100%;display:flex;flex-direction:column;align-items:center}
+.seq figure.l img{width:100%;max-width:1500px;height:auto}
+.seq figure.p img{height:auto;max-height:92vh;width:auto;max-width:100%}
+.seq figure.pair{flex-direction:row;gap:clamp(12px,2vw,28px);justify-content:center;align-items:flex-start;max-width:1500px}
+.seq figure.pair button{flex:1 1 0;min-width:0}
+.seq figure.pair img{width:100%;height:auto;max-height:none}
+.seq img{display:block;cursor:zoom-in;background:var(--panel)}
+.seq figcaption{align-self:flex-start;margin-top:10px;font-size:12px;color:var(--mute);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.seq figure.p figcaption{align-self:center}
+@media (max-width:560px){.seq figure.pair{flex-direction:column}}
+.s-nav{display:grid;grid-template-columns:1fr 1fr;gap:16px;border-top:1px solid var(--hair);margin-top:clamp(64px,9vw,140px);padding-top:24px}
+.s-nav a{display:flex;flex-direction:column;gap:6px}
+.s-nav a:last-child{text-align:right;align-items:flex-end}
+.s-nav b{font:400 clamp(28px,4vw,52px)/1 var(--serif);transition:color .2s}
+.s-nav a:hover b{color:var(--mute)}
+.back{display:inline-block;margin-top:28px}
+
+/* info */
+.info{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,6vw,110px);padding-block:clamp(24px,6vw,80px) 40px}
+.info h1{font:400 clamp(48px,7vw,112px)/.92 var(--serif);margin:0 0 28px}
+.info p.en{font-size:15px;color:var(--mute)}
+.info p{max-width:58ch;color:#c9c8c4;font-size:17px;line-height:1.65;margin:0 0 18px}
+.info .img img{width:100%;height:auto;display:block}
+.info .img .small{margin-top:10px}
+.facts{margin-top:40px;display:grid;gap:0;border-top:1px solid var(--hair)}
+.facts div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding-block:14px;border-bottom:1px solid var(--hair)}
+.facts dt{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding-top:3px}
+.facts dd{margin:0;font-size:15px}
+.facts dd a{border-bottom:1px solid var(--hair)}
+.facts dd a:hover{border-color:var(--paper)}
+.copy{font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--hair);padding:5px 8px;margin-left:10px;color:var(--mute)}
+.copy:hover{color:var(--paper);border-color:var(--paper)}
+@media (max-width:860px){.info{grid-template-columns:1fr}.facts div{grid-template-columns:1fr;gap:2px}}
+
+.fab{position:fixed;right:18px;bottom:18px;z-index:40;display:flex;gap:8px;padding:6px;border-radius:999px;background:color-mix(in srgb,var(--ink) 82%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--hair)}
+.fab a{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:var(--paper);transition:background .2s,color .2s}
+.fab a:hover{background:var(--paper);color:var(--ink)}.fab a.wa:hover{background:var(--signal);color:#fff}
+.fab svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.fab svg .f{fill:currentColor;stroke:none}
+@media (max-width:560px){.fab{right:12px;bottom:12px}.fab a{width:42px;height:42px}}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-block:72px 32px;font-size:12px;color:var(--mute);letter-spacing:.04em}
+footer a:hover{color:var(--paper)}
+.dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--signal);margin-right:8px;vertical-align:1px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:#050505;display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 48px) 56px calc(env(safe-area-inset-bottom,0px) + 48px)}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.lb .x{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:18px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.lb .x:hover{color:var(--paper)}
+.lb .c{position:absolute;left:18px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);font-size:12px;color:var(--mute);letter-spacing:.06em}
+.lb .nv{position:absolute;top:0;bottom:0;width:22%;display:flex;align-items:center;font-size:28px;color:var(--mute)}
+.lb .nv:hover{color:var(--paper)}
+.lb .pv{left:0;justify-content:flex-start;padding-left:16px}.lb .nx{right:0;justify-content:flex-end;padding-right:16px}
+@media (max-width:560px){.lb{padding-inline:8px}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Matteo Barbieri, indice">MATTEO<i aria-hidden="true"></i>BARBIERI</a>
+    <nav class="nav" aria-label="Sezioni">
+      <a href="#live" data-nav="live">Live</a>
+      <a href="#ritratti" data-nav="ritratti">Ritratti</a>
+      <a href="#lavori" data-nav="lavori">Lavori</a>
+      <a href="#contatti" data-nav="info">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<div class="fab" role="navigation" aria-label="Contatto rapido">
+<a href="mailto:matte.mog@gmail.com?subject=Richiesta%20servizio%20fotografico" aria-label="Scrivimi una email" title="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 7 8.5-7"/></svg></a>
+<a href="https://instagram.com/matteobarbieriph" target="_blank" rel="noopener" aria-label="Instagram @matteobarbieriph" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".9" class="f"/></svg></a>
+<a href="https://wa.me/393404943680" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp" class="wa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-3.6A8 8 0 1 1 8 19.1z"/><path d="M9 8.6c0 3 2.4 6.2 6 6.6l1.2-1.4-1.9-1-0.9.8c-1-.4-2.1-1.5-2.5-2.5l.8-.9-1-1.9z" class="f"/></svg></a>
+</div>
+<footer><div class="wrap"><span><span class="dot" aria-hidden="true"></span>Matteo Barbieri · Ferrara · Bologna</span><span><a href="mailto:matte.mog@gmail.com">matte.mog@gmail.com</a> · <a href="https://instagram.com/matteobarbieriph" target="_blank" rel="noopener">@matteobarbieriph</a> · <a href="#contatti">Contatti</a></span></div></footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Foto a schermo intero">
+  <img id="lbImg" alt="">
+  <button class="nv pv" id="lbP" type="button" aria-label="Foto precedente">←</button>
+  <button class="nv nx" id="lbN" type="button" aria-label="Foto successiva">→</button>
+  <button class="x" id="lbX" type="button">Chiudi</button>
+  <span class="c" id="lbC"></span>
+</div>
+
+<script>
+const CONTACT={email:"matte.mog@gmail.com",phone:"+39 340 494 3680",instagram:"matteobarbieriph"};
+const S=[{"id": "elephant-brain", "t": "Elephant Brain", "p": "Locomotiv, Bologna · Harmonya Fest, Alchemica", "d": "2025 — 2026", "kind": "live", "im": [["elephant-brain-00", 1800, 1201], ["elephant-brain-01", 1800, 1201], ["elephant-brain-02", 1800, 1440], ["elephant-brain-03", 1800, 1440], ["elephant-brain-04", 1440, 960], ["elephant-brain-05", 1800, 1440], ["elephant-brain-06", 1800, 1200], ["elephant-brain-07", 1200, 1800], ["elephant-brain-08", 1800, 1200], ["elephant-brain-09", 1800, 1200]]}, {"id": "interpol", "t": "Interpol", "p": "Sequoie Music Park, Bologna", "d": "16.07.2026", "kind": "live", "im": [["interpol-00", 1800, 1200], ["interpol-01", 1200, 1800], ["interpol-02", 1800, 1200], ["interpol-03", 1800, 1200], ["interpol-04", 1800, 1200], ["interpol-05", 1800, 1200], ["interpol-06", 1800, 1200]]}, {"id": "a-perfect-circle", "t": "A Perfect Circle", "p": "Ferrara Summer Festival", "d": "13.06.2026", "kind": "live", "im": [["a-perfect-circle-00", 1800, 1200], ["a-perfect-circle-01", 1800, 1200], ["a-perfect-circle-02", 1200, 1800], ["a-perfect-circle-03", 1200, 1800], ["a-perfect-circle-04", 1800, 1200], ["a-perfect-circle-05", 1800, 1200], ["a-perfect-circle-06", 1800, 1200]]}, {"id": "pixies", "t": "Pixies", "p": "Parco della Musica, Milano", "d": "14.07.2026", "kind": "live", "im": [["pixies-00", 1800, 1200], ["pixies-01", 1200, 1800], ["pixies-02", 1800, 1200], ["pixies-03", 1800, 1200], ["pixies-04", 1200, 1800], ["pixies-05", 1800, 1200]]}, {"id": "the-zen-circus", "t": "The Zen Circus", "p": "Estragon, Bologna", "d": "12.12.2025", "kind": "live", "im": [["the-zen-circus-00", 1800, 1200], ["the-zen-circus-01", 1800, 1201], ["the-zen-circus-02", 1440, 1800], ["the-zen-circus-03", 1800, 1201], ["the-zen-circus-04", 1440, 1800], ["the-zen-circus-05", 1800, 1200], ["the-zen-circus-06", 1800, 1200]]}, {"id": "caparezza", "t": "Caparezza", "p": "Sequoie Music Park, Bologna", "d": "08.07.2026", "kind": "live", "im": [["caparezza-00", 1800, 1200], ["caparezza-01", 1200, 1800], ["caparezza-02", 1800, 1200], ["caparezza-03", 1800, 1200], ["caparezza-04", 1800, 1200], ["caparezza-05", 1800, 1200], ["caparezza-06", 1800, 1200]]}, {"id": "ministri", "t": "Ministri", "p": "Ferrara Sotto le Stelle", "d": "22.07.2026", "kind": "live", "im": [["ministri-00", 1800, 1200], ["ministri-01", 1800, 1200], ["ministri-02", 1200, 1800], ["ministri-03", 1800, 1200], ["ministri-04", 1800, 1200], ["ministri-05", 1800, 1200], ["ministri-06", 1800, 1200]]}, {"id": "bambole-di-pezza", "t": "Bambole di Pezza", "p": "Estragon, Bologna", "d": "06.05.2026", "kind": "live", "im": [["bambole-di-pezza-00", 1200, 1800], ["bambole-di-pezza-01", 1200, 1800], ["bambole-di-pezza-02", 1200, 1800], ["bambole-di-pezza-03", 1800, 1200], ["bambole-di-pezza-04", 1800, 1200], ["bambole-di-pezza-05", 1800, 1200]]}, {"id": "negrita", "t": "Negrita", "p": "Teatro EuropAuditorium, Bologna", "d": "04.12.2025", "kind": "live", "im": [["negrita-00", 1440, 1800], ["negrita-01", 1200, 1800], ["negrita-02", 1200, 1800], ["negrita-03", 1200, 1800], ["negrita-04", 1800, 1200], ["negrita-05", 1200, 1800]]}, {"id": "dropkick-murphys", "t": "Dropkick Murphys", "p": "Beky Bay, Bellaria-Igea Marina", "d": "12.08.2026", "kind": "live", "im": [["dropkick-murphys-00", 1800, 1200], ["dropkick-murphys-01", 1800, 1200], ["dropkick-murphys-02", 1200, 1800], ["dropkick-murphys-03", 1800, 1200], ["dropkick-murphys-04", 1800, 1200], ["dropkick-murphys-05", 1800, 1200], ["dropkick-murphys-06", 1200, 1800]]}, {"id": "joan-thiele", "t": "Joan Thiele", "p": "Frogstock, Riolo Terme", "d": "20.08.2026", "kind": "live", "im": [["joan-thiele-00", 1800, 1200], ["joan-thiele-01", 1200, 1800], ["joan-thiele-02", 1800, 1200], ["joan-thiele-03", 1200, 1800], ["joan-thiele-04", 1200, 1800], ["joan-thiele-05", 1800, 1200]]}, {"id": "marlene-kuntz", "t": "Marlene Kuntz", "p": "Estragon, Bologna · Ferrara Sotto le Stelle", "d": "marzo — luglio 2026", "kind": "live", "im": [["marlene-kuntz-00", 1800, 1200], ["marlene-kuntz-01", 1800, 1200], ["marlene-kuntz-02", 1200, 1800], ["marlene-kuntz-03", 1800, 1200], ["marlene-kuntz-04", 1200, 1800], ["marlene-kuntz-05", 1200, 1800], ["marlene-kuntz-06", 1200, 1800]]}, {"id": "motta", "t": "Motta", "p": "DumBO, Bologna", "d": "21.05.2026", "kind": "live", "im": [["motta-00", 1200, 1800], ["motta-01", 1200, 1800], ["motta-02", 1800, 1200], ["motta-03", 1800, 1200], ["motta-04", 1200, 1800], ["motta-05", 1200, 1800], ["motta-06", 1800, 1200]]}, {"id": "kneecap", "t": "Kneecap", "p": "Sequoie Music Park, Bologna", "d": "16.06.2026", "kind": "live", "im": [["kneecap-00", 1200, 1800], ["kneecap-01", 1800, 1200], ["kneecap-02", 1800, 1200], ["kneecap-03", 1800, 1200], ["kneecap-04", 1800, 1200]]}, {"id": "tom-smith", "t": "Tom Smith", "p": "Teatro Comunale, Ferrara", "d": "16.03.2026", "kind": "live", "im": [["tom-smith-00", 1800, 1200], ["tom-smith-01", 1800, 1200], ["tom-smith-02", 1800, 1200], ["tom-smith-03", 1800, 1200], ["tom-smith-04", 1800, 1200], ["tom-smith-05", 1800, 1200]]}, {"id": "mclusky", "t": "mclusky", "p": "Covo Club, Bologna", "d": "11.10.2025", "kind": "live", "im": [["mclusky-00", 1108, 1660], ["mclusky-01", 1107, 1660], ["mclusky-02", 1107, 1660], ["mclusky-03", 1660, 1107], ["mclusky-04", 1660, 1108], ["mclusky-05", 1660, 1107]]}, {"id": "subsonica", "t": "Subsonica", "p": "Caserme Rosse, Bologna · Festa Reggio", "d": "giugno — settembre 2026", "kind": "live", "im": [["subsonica-00", 1200, 1800], ["subsonica-01", 1800, 1200], ["subsonica-02", 1200, 1800], ["subsonica-03", 1200, 1800], ["subsonica-04", 1800, 1200], ["subsonica-05", 1800, 1200], ["subsonica-06", 1800, 1200]]}, {"id": "finley", "t": "Finley", "p": "Estragon, Bologna", "d": "15.03.2026", "kind": "live", "im": [["finley-00", 1200, 1800], ["finley-01", 1800, 1200], ["finley-02", 1800, 1200], ["finley-03", 1800, 1200], ["finley-04", 1800, 1200], ["finley-05", 1800, 1200], ["finley-06", 1200, 1800]]}, {"id": "giorgio-poi", "t": "Giorgio Poi", "p": "Estragon, Bologna", "d": "12.03.2026", "kind": "live", "im": [["giorgio-poi-00", 1800, 1440], ["giorgio-poi-01", 1800, 1440], ["giorgio-poi-02", 1800, 1440], ["giorgio-poi-03", 1800, 1440], ["giorgio-poi-04", 1800, 1200], ["giorgio-poi-05", 1800, 1440]]}, {"id": "levante", "t": "Levante", "p": "", "d": "14.05.2026", "kind": "live", "im": [["levante-00", 1800, 1200], ["levante-01", 1800, 1200], ["levante-02", 1800, 1200], ["levante-03", 1200, 1800], ["levante-04", 1200, 1800], ["levante-05", 1800, 1200], ["levante-06", 1800, 1200]]}, {"id": "les-negresses-vertes", "t": "Les Négresses Vertes", "p": "Ferrara Sotto le Stelle", "d": "30.07.2026", "kind": "live", "im": [["les-negresses-vertes-00", 1800, 1200], ["les-negresses-vertes-01", 1800, 1200], ["les-negresses-vertes-02", 1200, 1800], ["les-negresses-vertes-03", 1800, 1200], ["les-negresses-vertes-04", 1800, 1200], ["les-negresses-vertes-05", 1800, 1200]]}, {"id": "jehnny-beth", "t": "Jehnny Beth", "p": "Ferrara Summer Festival", "d": "13.06.2026", "kind": "live", "im": [["jehnny-beth-00", 1800, 1200], ["jehnny-beth-01", 1800, 1200], ["jehnny-beth-02", 1200, 1800], ["jehnny-beth-03", 1800, 1200], ["jehnny-beth-04", 1800, 1200], ["jehnny-beth-05", 1800, 1200]]}, {"id": "of-monsters-and-men", "t": "Of Monsters and Men", "p": "Sequoie Music Park, Bologna", "d": "25.06.2026", "kind": "live", "im": [["of-monsters-and-men-00", 1800, 1200], ["of-monsters-and-men-01", 1200, 1800], ["of-monsters-and-men-02", 1200, 1800], ["of-monsters-and-men-03", 1800, 1200], ["of-monsters-and-men-04", 1200, 1800]]}, {"id": "vulfpeck", "t": "Vulfpeck · The Fearless Flyers", "p": "Parco della Musica, Milano", "d": "13.07.2026", "kind": "live", "im": [["vulfpeck-00", 1200, 1800], ["vulfpeck-01", 1200, 1800], ["vulfpeck-02", 1800, 1200], ["vulfpeck-03", 1800, 1200], ["vulfpeck-04", 1800, 1200], ["vulfpeck-05", 1800, 1200]]}, {"id": "the-notwist", "t": "The Notwist", "p": "Ferrara Sotto le Stelle", "d": "23.07.2026", "kind": "live", "im": [["the-notwist-00", 1800, 1200], ["the-notwist-01", 1800, 1200], ["the-notwist-02", 1800, 1200], ["the-notwist-03", 1800, 1200], ["the-notwist-04", 1800, 1200], ["the-notwist-05", 1800, 1200]]}, {"id": "pride-of-haka", "t": "Pride of Haka", "p": "Set del videoclip", "d": "02.2026", "kind": "ritratti", "im": [["pride-of-haka-00", 1440, 1800], ["pride-of-haka-01", 1800, 1200], ["pride-of-haka-02", 1440, 1800], ["pride-of-haka-03", 1800, 1200], ["pride-of-haka-04", 1800, 1200], ["pride-of-haka-05", 1800, 1200], ["pride-of-haka-06", 1200, 1800], ["pride-of-haka-07", 1800, 1200]]}, {"id": "olivia-santimone", "t": "Olivia Santimone", "p": "Ritratto e live, Meca", "d": "04.2026", "kind": "ritratti", "im": [["olivia-santimone-00", 1800, 1200], ["olivia-santimone-01", 1200, 1800], ["olivia-santimone-02", 1800, 1200], ["olivia-santimone-03", 1800, 1200], ["olivia-santimone-04", 1800, 1200]]}, {"id": "incisions", "t": "Incisions", "p": "Foto promo", "d": "2026", "kind": "ritratti", "im": [["incisions-00", 1800, 1200], ["incisions-01", 1800, 1200], ["incisions-02", 1200, 1800], ["incisions-03", 1800, 1200], ["incisions-04", 1200, 1800]]}, {"id": "kylie-davide-dalila", "t": "Kylie, Davide e Dalila", "p": "Ritratto di famiglia", "d": "10.2025", "kind": "ritratti", "im": [["kylie-davide-dalila-00", 1800, 1201], ["kylie-davide-dalila-01", 1800, 1201], ["kylie-davide-dalila-02", 1800, 1201], ["kylie-davide-dalila-03", 1800, 1201], ["kylie-davide-dalila-04", 1800, 1201], ["kylie-davide-dalila-05", 1800, 1201], ["kylie-davide-dalila-06", 1800, 1201]]}, {"id": "studio-olistico-kairos", "t": "Studio Olistico Kairos", "p": "Servizio brand · Rioveggio (BO)", "d": "09.2025", "kind": "brand", "im": [["studio-olistico-kairos-00", 1800, 1201], ["studio-olistico-kairos-01", 1800, 1201], ["studio-olistico-kairos-02", 1800, 1201], ["studio-olistico-kairos-03", 1800, 1440], ["studio-olistico-kairos-04", 1800, 1440], ["studio-olistico-kairos-05", 1800, 1440], ["studio-olistico-kairos-06", 1800, 1440], ["studio-olistico-kairos-07", 1800, 1201], ["studio-olistico-kairos-08", 1800, 1201]]}, {"id": "my-style-by-vero", "t": "My Style by Vero", "p": "Artigianato dipinto a mano · mercatino", "d": "06.2025", "kind": "brand", "im": [["my-style-by-vero-00", 1800, 1201], ["my-style-by-vero-01", 1800, 1201], ["my-style-by-vero-02", 1800, 1201], ["my-style-by-vero-03", 1800, 1201]]}, {"id": "primavera-fresh-gin", "t": "Primavera Fresh Gin", "p": "Still life di prodotto", "d": "11.2025", "kind": "brand", "im": [["primavera-fresh-gin-00", 1152, 1440], ["primavera-fresh-gin-01", 1440, 960], ["primavera-fresh-gin-02", 1440, 960], ["primavera-fresh-gin-03", 960, 1440]]}, {"id": "accademia-italiana-bari", "t": "Accademia Italiana · Roadshow", "p": "Confindustria, Bari · Gruppo Finlogic", "d": "01.10.2026", "kind": "eventi", "im": [["accademia-italiana-bari-00", 1800, 1200], ["accademia-italiana-bari-01", 1800, 1200], ["accademia-italiana-bari-02", 1800, 1200], ["accademia-italiana-bari-03", 1800, 1200], ["accademia-italiana-bari-04", 1800, 1200]]}, {"id": "battesimo", "t": "Battesimo di Leonardo", "p": "Reportage di famiglia", "d": "2026", "kind": "eventi", "im": [["battesimo-00", 1800, 1200], ["battesimo-01", 1200, 1800], ["battesimo-02", 1200, 1800], ["battesimo-03", 1800, 1200], ["battesimo-04", 1800, 1200], ["battesimo-05", 1800, 1200]]}, {"id": "sharing-before-christmas", "t": "Sharing Before Christmas", "p": "Workshop · Leila Bologna", "d": "12.2025", "kind": "eventi", "im": [["sharing-before-christmas-00", 1800, 1440], ["sharing-before-christmas-01", 1800, 1440], ["sharing-before-christmas-02", 1440, 1800], ["sharing-before-christmas-03", 1800, 1200], ["sharing-before-christmas-04", 1800, 1440], ["sharing-before-christmas-05", 1800, 1440], ["sharing-before-christmas-06", 1800, 1440]]}, {"id": "sherwood-skate-park", "t": "Sherwood Skate Park", "p": "Inaugurazione", "d": "07.2026", "kind": "eventi", "im": [["sherwood-skate-park-00", 1200, 1800], ["sherwood-skate-park-01", 1800, 1200], ["sherwood-skate-park-02", 1200, 1800], ["sherwood-skate-park-03", 1800, 1200], ["sherwood-skate-park-04", 1800, 1200], ["sherwood-skate-park-05", 1200, 1800], ["sherwood-skate-park-06", 1800, 1200]]}, {"id": "corteo-storico", "t": "Corteo storico del Palio", "p": "Ferrara", "d": "24.05.2025", "kind": "eventi", "im": [["corteo-storico-00", 1200, 1800], ["corteo-storico-01", 1200, 1800], ["corteo-storico-02", 1200, 1800], ["corteo-storico-03", 1200, 1800], ["corteo-storico-04", 1200, 1800], ["corteo-storico-05", 1200, 1800], ["corteo-storico-06", 1800, 1200]]}, {"id": "viaggi", "t": "Viaggi", "p": "Stoccolma · Helsinki", "d": "2025 — 2026", "kind": "viaggi", "im": [["stoccolma-00", 1800, 1200], ["stoccolma-01", 1800, 1200], ["stoccolma-02", 1800, 1200], ["stoccolma-03", 1800, 1200], ["stoccolma-04", 1200, 1800], ["stoccolma-05", 1800, 1200], ["stoccolma-06", 1800, 1200], ["finlandia-00", 1800, 1440], ["finlandia-01", 1800, 1201]]}];
+const app=document.getElementById("app");
+const el=(t,a={},...k)=>{const e=document.createElement(t);for(const[x,y]of Object.entries(a)){if(x==="class")e.className=y;else if(x.startsWith("on"))e.addEventListener(x.slice(2),y);else e.setAttribute(x,y)}k.forEach(c=>c!=null&&e.append(c));return e};
+const pad=n=>String(n).padStart(2,"0");
+const place=s=>[s.p,s.d].filter(Boolean).join(" — ");
+
+function card(s,i){
+  const c=s.im[0];
+  return el("a",{class:"card",href:"#"+s.id},
+    el("div",{class:"ph"},el("img",{src:"t/"+c[0]+".jpg",alt:s.t+(s.p?", "+s.p:""),loading:i<6?"eager":"lazy"})),
+    el("div",{class:"t"},el("b",{},s.t),el("span",{},s.d)),
+    s.p?el("div",{class:"p"},s.p):null);
+}
+const KINDS={live:"Live",ritratti:"Ritratti",brand:"Brand e prodotto",eventi:"Eventi e corporate",viaggi:"Viaggi"};
+function block(title,list,eager){
+  const w=el("section",{class:"sec"});
+  const n=list.reduce((a,s)=>a+s.im.length,0);
+  w.append(el("div",{class:"index-h"},el("h2",{},title),el("span",{class:"small"},list.length+(list.length>1?" serie":" serie")+" · "+n+" fotografie")));
+  const g=el("div",{class:"grid"});list.forEach((s,i)=>g.append(card(s,eager?i:9)));w.append(g);return w;
+}
+function home(kind){
+  const v=el("div",{class:"view wrap"});
+  if(!kind){
+    const f=S.find(s=>s.id==="elephant-brain");const op=f.im[0];
+    v.append(el("div",{class:"open"},
+      el("button",{type:"button","aria-label":"Apri la serie "+f.t,onclick:()=>go(f.id)},el("img",{src:"f/"+op[0]+".jpg",alt:"Il pubblico solleva un ragazzo sopra le teste davanti al palco degli Elephant Brain al Locomotiv di Bologna",fetchpriority:"high"})),
+      el("div",{class:"cap small"},el("span",{},"Elephant Brain — Locomotiv, Bologna — 22.11.2025"),el("span",{},"Live music · reportage · portrait"))));
+    v.append(block("Live",S.filter(s=>s.kind==="live"),true));
+    v.append(block("Ritratti",S.filter(s=>s.kind==="ritratti")));
+    v.append(block("Lavori",S.filter(s=>["brand","eventi","viaggi"].includes(s.kind))));
+  }else if(kind==="lavori"){
+    ["brand","eventi","viaggi"].forEach((k,j)=>{const b=block(KINDS[k],S.filter(s=>s.kind===k),j===0);if(j===0)b.style.marginTop="clamp(16px,4vw,48px)";v.append(b)});
+  }else{
+    const b=block(KINDS[kind],S.filter(s=>s.kind===kind),true);b.style.marginTop="clamp(16px,4vw,48px)";v.append(b);
+  }
+  return v;
+}
+function series(id){
+  const i=S.findIndex(s=>s.id===id);const s=S[i];
+  const v=el("article",{class:"view wrap"});
+  v.append(el("header",{class:"s-head"},el("h1",{},s.t),el("div",{class:"meta"},s.p?el("span",{class:"p"},s.p):null,el("span",{class:"n"},s.d+" · "+s.im.length+" foto"))));
+  const seq=el("div",{class:"seq"});
+  const ims=s.im;let k=0;
+  while(k<ims.length){
+    const a=ims[k],b=ims[k+1];
+    const portrait=x=>x&&x[2]>x[1];
+    if(portrait(a)&&portrait(b)&&k>0){
+      const f=el("figure",{class:"pair"});
+      [a,b].forEach((x,j)=>{const idx=k+j;f.append(el("button",{type:"button","aria-label":"Ingrandisci foto "+(idx+1),onclick:()=>openLB(s,idx)},el("img",{src:"f/"+x[0]+".jpg",alt:s.t+", foto "+(idx+1),loading:"lazy",width:x[1],height:x[2]})))});
+      seq.append(f);k+=2;
+    }else{
+      const f=el("figure",{class:portrait(a)?"p":"l"});
+      f.append(el("img",{src:"f/"+a[0]+".jpg",alt:s.t+", foto "+(k+1),loading:k<2?"eager":"lazy",width:a[1],height:a[2],onclick:(n=>()=>openLB(s,n))(k)}));
+      f.append(el("figcaption",{},pad(k+1)+" / "+pad(ims.length)));
+      seq.append(f);k+=1;
+    }
+  }
+  v.append(seq);
+  const grp=S.filter(x=>x.kind===s.kind||(["brand","eventi","viaggi"].includes(x.kind)&&["brand","eventi","viaggi"].includes(s.kind)));const gi=grp.indexOf(s);
+  const prev=grp[(gi-1+grp.length)%grp.length],next=grp[(gi+1)%grp.length];
+  v.append(el("nav",{class:"s-nav","aria-label":"Altre serie"},
+    el("a",{href:"#"+prev.id},el("span",{class:"small"},"← Precedente"),el("b",{},prev.t)),
+    el("a",{href:"#"+next.id},el("span",{class:"small"},"Successiva →"),el("b",{},next.t))));
+  v.append(el("a",{class:"back small",href:"#"+(s.kind==="live"||s.kind==="ritratti"?s.kind:"lavori")},"Tutte le serie"));
+  return v;
+}
+function info(){
+  const v=el("div",{class:"view wrap"});
+  const pic=S.find(s=>s.id==="elephant-brain").im[6]||S[0].im[0];
+  const facts=el("dl",{class:"facts"},
+    el("div",{},el("dt",{},"Lavoro"),el("dd",{},"Live music e festival · Reportage urbani e sociali · Promo band e ritratti editoriali · Lifestyle, pet e family · Brand ed eventi")),
+    el("div",{},el("dt",{},"Pubblicazioni"),el("dd",{},"Spazio Rock · Booklet Magazine · The Festivals Backpack")),
+    el("div",{},el("dt",{},"Base"),el("dd",{},"Ferrara e Bologna. Nord Italia e oltre.")),
+    el("div",{},el("dt",{},"Email"),el("dd",{},el("a",{href:"mailto:"+CONTACT.email},CONTACT.email),el("button",{class:"copy",type:"button",onclick:e=>copy(CONTACT.email,e.target)},"Copia"))),
+    el("div",{},el("dt",{},"Telefono"),el("dd",{},el("a",{href:"https://wa.me/"+CONTACT.phone.replace(/\D/g,""),target:"_blank",rel:"noopener"},CONTACT.phone+" · WhatsApp"),el("button",{class:"copy",type:"button",onclick:e=>copy(CONTACT.phone,e.target)},"Copia"))),
+    CONTACT.instagram?el("div",{},el("dt",{},"Instagram"),el("dd",{},el("a",{href:"https://instagram.com/"+CONTACT.instagram,target:"_blank",rel:"noopener"},"@"+CONTACT.instagram))):null,
+    el("div",{},el("dt",{},"Articoli"),el("dd",{},el("a",{href:"https://www.spaziorock.it/author/matteo-barbieri/",target:"_blank",rel:"noopener"},"Spazio Rock ↗"))));
+  v.append(el("section",{class:"info"},
+    el("div",{},el("h1",{},"Matteo Barbieri"),
+      el("p",{},"Fotografo specializzato nel racconto di eventi live, festival e realtà urbane. Con un approccio naturale e spontaneo realizzo contenuti visivi per band, artisti e organizzazioni culturali."),
+      el("p",{},"Lavoro principalmente tra Ferrara, Bologna e il Veneto, e pubblico con Spazio Rock, Booklet Magazine e The Festivals Backpack."),
+      el("p",{lang:"en",class:"en"},"Photographer specialising in live events, music festivals and urban environments. Based between Ferrara and Bologna, working across Northern Italy for bands, artists and cultural organisations."),
+      facts),
+    el("div",{class:"img"},el("img",{src:"f/"+pic[0]+".jpg",alt:"Elephant Brain all'Harmonya Fest",loading:"lazy"}),el("div",{class:"small"},"Elephant Brain — Harmonya Fest, Bologna — 02.10.2026"))));
+  return v;
+}
+async function copy(t,b){try{await navigator.clipboard.writeText(t);b.textContent="Copiato"}catch(e){b.textContent="Seleziona e copia"}setTimeout(()=>b.textContent="Copia",1800)}
+
+/* router */
+function go(id){location.hash=id}
+function render(){
+  const h=location.hash.slice(1);
+  app.innerHTML="";
+  let v,nav="live";
+  if(h==="info"||h==="contatti"){v=info();nav="info"}
+  else if(h==="ritratti"){v=home("ritratti");nav="ritratti"}
+  else if(h==="lavori"){v=home("lavori");nav="lavori"}
+  else if(h==="live"){v=home("live")}
+  else if(S.some(s=>s.id===h)){v=series(h);const k=S.find(s=>s.id===h).kind;nav=(k==="live"||k==="ritratti")?k:"lavori"}
+  else{v=home(null)}
+  app.append(v);
+  document.querySelectorAll("[data-nav]").forEach(a=>a.toggleAttribute("aria-current",a.dataset.nav===nav&&h!==""));
+  document.querySelectorAll("[data-nav]").forEach(a=>{if(a.hasAttribute("aria-current"))a.setAttribute("aria-current","page")});
+  window.scrollTo(0,0);
+}
+addEventListener("hashchange",render);
+
+/* lightbox */
+let L=null,LI=0,lastF=null;
+function openLB(s,i){L=s;LI=i;lastF=document.activeElement;document.getElementById("lb").hidden=false;document.body.style.overflow="hidden";showLB();document.getElementById("lbX").focus()}
+function showLB(){const x=L.im[LI];const img=document.getElementById("lbImg");img.src="f/"+x[0]+".jpg";img.alt=L.t+", foto "+(LI+1);document.getElementById("lbC").textContent=L.t+" — "+pad(LI+1)+" / "+pad(L.im.length)}
+function closeLB(){document.getElementById("lb").hidden=true;document.body.style.overflow="";lastF&&lastF.focus()}
+const stepLB=n=>{LI=(LI+n+L.im.length)%L.im.length;showLB()};
+document.getElementById("lbX").onclick=closeLB;document.getElementById("lbP").onclick=()=>stepLB(-1);document.getElementById("lbN").onclick=()=>stepLB(1);
+document.getElementById("lbImg").onclick=closeLB;
+addEventListener("keydown",e=>{if(document.getElementById("lb").hidden)return;if(e.key==="Escape")closeLB();if(e.key==="ArrowRight")stepLB(1);if(e.key==="ArrowLeft")stepLB(-1)});
+let tx=null;const lb=document.getElementById("lb");lb.addEventListener("touchstart",e=>{tx=e.touches[0].clientX},{passive:true});lb.addEventListener("touchend",e=>{if(tx==null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)stepLB(d<0?1:-1);tx=null});
+
+render();
+</script>
+</body></html>
