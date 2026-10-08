@@ -16,13 +16,8 @@
 <meta name="theme-color" content="#0a0a0a">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0b'/%3E%3Crect x='14' y='7' width='4' height='18' fill='%23e11322'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600&display=swap">
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
-(function(){var c=null;try{c=localStorage.getItem("mb_consent")}catch(e){}
-gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:c==="yes"?"granted":"denied"});})();
-gtag("js",new Date());gtag("config","G-S2FGT9EMC4",{send_page_view:false});</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2FGT9EMC4"></script>
+<link rel="preload" href="fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/schibsted-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Anton";src:url(fonts/anton-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}@font-face{font-family:"Instrument Serif";src:url(fonts/instrument-serif-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:"Instrument Serif";src:url(fonts/instrument-serif-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}@font-face{font-family:"Schibsted Grotesk";src:url(fonts/schibsted-grotesk-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}@font-face{font-family:"Schibsted Grotesk";src:url(fonts/schibsted-grotesk-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}@font-face{font-family:"Schibsted Grotesk";src:url(fonts/schibsted-grotesk-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Matteo Barbieri Photography", "description": "Fotografia live, festival, ritratti e reportage. Live music, festival and reportage photographer.", "url": "https://matteobarbieri.it/", "image": "https://matteobarbieri.it/og.jpg", "email": "matte.mog@gmail.com", "telephone": "+393404943680", "areaServed": ["Ferrara", "Bologna", "Emilia-Romagna", "Veneto", "Italia"], "address": {"@type": "PostalAddress", "addressLocality": "Ferrara", "addressRegion": "Emilia-Romagna", "addressCountry": "IT"}, "founder": {"@type": "Person", "name": "Matteo Barbieri", "jobTitle": "Fotografo", "sameAs": ["https://instagram.com/matteobarbieriph", "https://www.spaziorock.it/author/matteo-barbieri/"]}, "sameAs": ["https://instagram.com/matteobarbieriph"]}</script>
 <style>
 /* Layout: an editorial archive, the way working music photographers present work — an index of shows, each opening as its own sequence of large frames on black. Type stays small and quiet; the photographs carry the page. Single dark look on purpose. */
@@ -215,10 +210,20 @@ footer a:hover{color:var(--paper)}
 .fs .tx span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#d8d6d2;text-align:right;max-width:44ch}
 .fs .tx i{font-style:normal;color:var(--signal);display:block;margin-bottom:6px}
 @media (max-width:760px){.fs a{height:min(80svh,760px)}.fs .tx span{text-align:left}}
-.ck{position:fixed;left:18px;bottom:18px;z-index:45;max-width:min(440px,calc(100vw - 210px));background:#141414;border:1px solid var(--hair);padding:16px 18px;display:flex;flex-direction:column;gap:12px;font-size:13px;line-height:1.5}
-.ck p{margin:0;color:#c9c8c4}.ck div{display:flex;gap:14px;align-items:center}.ck .btn{padding:10px 18px;font-size:12px}
-.ckn{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}.ckn:hover{color:var(--paper)}
-@media(max-width:560px){.ck{left:12px;right:12px;bottom:72px;max-width:none}}
+.wa-b{background:transparent;color:var(--paper);border:1px solid #3a3a3a}.wa-b:hover{background:#25d366;border-color:#25d366;color:#0a0a0a}
+.fm-note{font-size:12px;color:var(--mute);margin:0}.fm-note a{border-bottom:1px solid var(--hair)}
+.ck{position:fixed;left:18px;bottom:18px;z-index:45;width:min(460px,calc(100vw - 36px));background:#141414;border:1px solid #333;padding:20px 22px 18px;display:flex;flex-direction:column;gap:10px;font-size:13px;line-height:1.55;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.ck b{font:400 22px/1.1 var(--serif)}.ck p{margin:0;color:#c9c8c4}.ck p a{border-bottom:1px solid var(--mute);color:var(--paper)}
+.ck div{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.ckb{border:1px solid var(--paper);padding:11px 14px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);background:transparent}
+.ckb:hover{background:var(--paper);color:var(--ink)}
+.ckx{position:absolute;top:6px;right:10px;font-size:24px;line-height:1;color:var(--mute);padding:4px 8px}.ckx:hover{color:var(--paper)}
+@media(max-width:560px){.ck{left:10px;right:10px;width:auto;bottom:10px}}
+.pv-b{max-width:78ch}.pv-b h2{font:400 clamp(26px,2.6vw,36px)/1.1 var(--serif);margin:48px 0 14px}
+.pv-b p,.pv-b li{color:#c9c8c4;line-height:1.65}.pv-b ul{padding-left:18px;display:grid;gap:12px}.pv-b li b{color:var(--paper);font-weight:500}
+.pv-b a{border-bottom:1px solid var(--hair)}
+.ckt{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 20px}.ckt th,.ckt td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--hair);vertical-align:top}.ckt th{font-weight:500;color:var(--mute);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+@media(max-width:560px){.ckt{font-size:12px}.ckt th:nth-child(2),.ckt td:nth-child(2){display:none}}
 /* lingua */
 .lang{font-size:12px;letter-spacing:.1em;color:var(--mute);border:1px solid var(--hair);padding:5px 8px;margin-left:4px}
 .lang b{color:var(--paper);font-weight:500}
@@ -261,10 +266,10 @@ footer a:hover{color:var(--paper)}
 <div class="fab" id="fab" role="navigation">
 <a href="mailto:matte.mog@gmail.com" data-k="mail" title="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 7 8.5-7"/></svg></a>
 <a href="https://instagram.com/matteobarbieriph" target="_blank" rel="noopener" aria-label="Instagram @matteobarbieriph" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".9" class="f"/></svg></a>
-<a href="https://wa.me/393404943680" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp" class="wa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-3.6A8 8 0 1 1 8 19.1z"/><path d="M9 8.6c0 3 2.4 6.2 6 6.6l1.2-1.4-1.9-1-0.9.8c-1-.4-2.1-1.5-2.5-2.5l.8-.9-1-1.9z" class="f"/></svg></a>
+<a href="https://wa.me/393404943680" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp" class="wa" data-k="wa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-3.6A8 8 0 1 1 8 19.1z"/><path d="M9 8.6c0 3 2.4 6.2 6 6.6l1.2-1.4-1.9-1-0.9.8c-1-.4-2.1-1.5-2.5-2.5l.8-.9-1-1.9z" class="f"/></svg></a>
 </div>
 <footer><div class="wrap" id="foot"></div></footer>
-<div class="ck" id="ck" hidden role="region" aria-label="Cookie"><p id="ckT"></p><div><button type="button" class="btn" id="ckY"></button><button type="button" class="ckn" id="ckN"></button></div></div>
+<div class="ck" id="ck" hidden role="dialog" aria-labelledby="ckH" aria-describedby="ckT"><button type="button" class="ckx" id="ckX"></button><b id="ckH"></b><p id="ckT"></p><div><button type="button" class="ckb" id="ckN"></button><button type="button" class="ckb" id="ckY"></button></div></div>
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true">
   <img id="lbImg" alt="">
@@ -314,6 +319,7 @@ const app=document.getElementById("app");
 const el=(t,a={},...k)=>{const e=document.createElement(t);for(const[x,y]of Object.entries(a)){if(x==="class")e.className=y;else if(x.startsWith("on"))e.addEventListener(x.slice(2),y);else e.setAttribute(x,y)}k.forEach(c=>c!=null&&e.append(c));return e};
 const pad=n=>String(n).padStart(2,"0");
 const ext={target:"_blank",rel:"noopener"};
+const WA=t=>"https://wa.me/"+CONTACT.phone.replace(/\D/g,"")+"?text="+encodeURIComponent(t);
 
 /* header, footer, fab, lightbox labels */
 function chrome(){
@@ -324,9 +330,10 @@ function chrome(){
   nav.append(el("button",{class:"lang",type:"button","aria-label":T("Switch to English","Passa all'italiano"),onclick:()=>setLang(LANG==="it"?"en":"it")},...(LANG==="it"?[el("b",{},"IT")," / EN"]:["IT / ",el("b",{},"EN")])));
   const fab=document.getElementById("fab");fab.setAttribute("aria-label",T("Contatto rapido","Quick contact"));
   const m=fab.querySelector('[data-k="mail"]');m.href="mailto:"+CONTACT.email+"?subject="+encodeURIComponent(T("Richiesta servizio fotografico","Photography enquiry"));m.setAttribute("aria-label",T("Scrivimi una email","Send me an email"));
+  const w=fab.querySelector('[data-k="wa"]');w.href=WA(T("Ciao Matteo, ti scrivo dal tuo sito: vorrei sapere disponibilità e preventivo per un servizio fotografico.","Hi Matteo, I found you through your website: I would like to ask about availability and a quote for a photo shoot."));
   const ft=document.getElementById("foot");ft.innerHTML="";
   ft.append(el("span",{},el("span",{class:"dot","aria-hidden":"true"}),"Matteo Barbieri · Ferrara · Bologna"),
-    el("span",{},el("a",{href:"mailto:"+CONTACT.email},CONTACT.email)," · ",el("a",{href:"https://instagram.com/"+CONTACT.instagram,...ext},"@"+CONTACT.instagram)," · ",el("a",{href:"#pubblicazioni"},T("Pubblicazioni","Press"))," · ",el("a",{href:"#servizi"},T("Servizi","Services"))," · ",el("a",{href:"#contatti"},T("Contatti","Contact"))," · ",el("button",{type:"button",style:"font-size:inherit;color:inherit",onclick:()=>consentUI(true)},"Cookie")));
+    el("span",{},el("a",{href:"mailto:"+CONTACT.email},CONTACT.email)," · ",el("a",{href:"https://instagram.com/"+CONTACT.instagram,...ext},"@"+CONTACT.instagram)," · ",el("a",{href:"#pubblicazioni"},T("Pubblicazioni","Press"))," · ",el("a",{href:"#servizi"},T("Servizi","Services"))," · ",el("a",{href:"#contatti"},T("Contatti","Contact"))," · ",el("a",{href:"#privacy"},T("Privacy","Privacy"))," · ",el("button",{type:"button",style:"font-size:inherit;color:inherit;letter-spacing:inherit",onclick:()=>consentUI(true)},"Cookie")));
   document.getElementById("lb").setAttribute("aria-label",T("Foto a schermo intero","Full screen photo"));
   document.getElementById("lbX").textContent=T("Chiudi","Close");
   document.getElementById("lbP").setAttribute("aria-label",T("Foto precedente","Previous photo"));
@@ -457,6 +464,11 @@ function servizi(){
   v.append(el("div",{class:"cta"},el("b",{},T("Hai una data in calendario?","Got a date in the calendar?")),el("a",{class:"btn",href:"#contatti"},T("Scrivimi →","Get in touch →"))));
   return v;
 }
+
+function waSend(f){const fd=new FormData(f);const g=k=>(fd.get(k)||"").toString().trim();
+  const lines=[T("Ciao Matteo, ti scrivo dal tuo sito.","Hi Matteo, I'm writing from your website."),"",
+    T("Nome: ","Name: ")+g("nome"),T("Tipo di lavoro: ","Type of job: ")+g("tipo"),g("data")?T("Data: ","Date: ")+g("data"):"",g("luogo")?T("Luogo: ","Location: ")+g("luogo"):"",g("email")?"Email: "+g("email"):"","",g("messaggio")].filter((x,i,a)=>x!==""||(a[i-1]!==""));
+  track("contact",{method:"whatsapp_form",tipo:g("tipo")});window.open(WA(lines.join("\n").trim()),"_blank","noopener")}
 function reqForm(){
   const f=el("form",{class:"fm",novalidate:""});
   const tipi=[["Concerto / tour","Concert / tour"],["Festival","Festival"],["Promo band","Band promo"],["Evento aziendale","Corporate event"],["Brand / prodotto","Brand / product"],["Privato / famiglia","Private / family"],["Altro","Other"]];
@@ -469,7 +481,8 @@ function reqForm(){
     el("label",{class:"w"},T("Telefono (facoltativo)","Phone (optional)"),el("input",{name:"telefono",type:"tel",autocomplete:"tel",placeholder:"+39"})),
     el("label",{class:"w"},T("Messaggio","Message"),el("textarea",{name:"messaggio",placeholder:T("Raccontami l'evento: artisti, orari, cosa ti serve.","Tell me about the event: artists, times, what you need.")})),
     el("input",{type:"text",name:"_honey",class:"hp",tabindex:"-1",autocomplete:"off","aria-hidden":"true"}),
-    el("div",{class:"send"},el("button",{class:"btn",type:"submit"},T("Invia richiesta →","Send request →")),el("span",{class:"msg",role:"status","aria-live":"polite"},T("Ti rispondo con disponibilità e preventivo.","I'll reply with availability and a quote."))));
+    el("div",{class:"send"},el("button",{class:"btn",type:"submit"},T("Invia richiesta →","Send request →")),el("button",{class:"btn wa-b",type:"button",onclick:()=>waSend(f)},T("Invia su WhatsApp","Send via WhatsApp")),el("span",{class:"msg",role:"status","aria-live":"polite"},T("Ti rispondo con disponibilità e preventivo.","I'll reply with availability and a quote."))),
+    el("p",{class:"w fm-note"},T("Uso i dati solo per risponderti. ","I only use your data to reply to you. "),el("a",{href:"#privacy"},T("Informativa privacy","Privacy policy"))));
   f.addEventListener("submit",async e=>{
     e.preventDefault();const m=f.querySelector(".msg"),b=f.querySelector("button");
     const fd=new FormData(f);
@@ -487,17 +500,60 @@ function reqForm(){
 async function copy(t,b){const o=b.textContent;try{await navigator.clipboard.writeText(t);b.textContent=T("Copiato","Copied")}catch(e){b.textContent=T("Seleziona e copia","Select and copy")}setTimeout(()=>b.textContent=o,1800)}
 
 
-/* analytics + consenso */
-const track=(n,p)=>{try{window.gtag&&gtag("event",n,Object.assign({lingua:LANG},p||{}))}catch(e){}};
-function consentUI(force){const c=(()=>{try{return localStorage.getItem("mb_consent")}catch(e){return null}})();const box=document.getElementById("ck");
-  document.getElementById("ckT").textContent=T("Uso Google Analytics, solo in forma statistica, per capire quali foto e pagine interessano di più. Nessuna pubblicità.","I use Google Analytics, for statistics only, to see which photos and pages people look at. No advertising.");
-  document.getElementById("ckY").textContent=T("Accetta","Accept");document.getElementById("ckN").textContent=T("Rifiuta","Decline");
-  box.hidden=!(force||!c)}
-function setConsent(v){try{localStorage.setItem("mb_consent",v)}catch(e){}try{gtag("consent","update",{analytics_storage:v==="yes"?"granted":"denied"})}catch(e){}document.getElementById("ck").hidden=true;if(v==="yes")track("page_view",pv())}
-document.getElementById("ckY").onclick=()=>setConsent("yes");document.getElementById("ckN").onclick=()=>setConsent("no");
+/* analytics + consenso (Garante 2021: niente tracciamento prima del consenso, X = rifiuto, scelta ricordata 6 mesi) */
+const GA_ID="G-S2FGT9EMC4",CK_VER=1,CK_DAYS=180;
+const ck=()=>{try{const o=JSON.parse(localStorage.getItem("mb_consent")||"null");if(o&&o.ver===CK_VER&&Date.now()-o.t<CK_DAYS*864e5)return o}catch(e){}return null};
+let gaOn=false;
+function gaLoad(){if(gaOn)return;gaOn=true;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};
+  gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:"granted"});
+  gtag("js",new Date());gtag("config",GA_ID,{send_page_view:false,allow_google_signals:false,allow_ad_personalization_signals:false});
+  const sc=document.createElement("script");sc.async=true;sc.src="https://www.googletagmanager.com/gtag/js?id="+GA_ID;document.head.append(sc)}
+function gaOff(){try{document.cookie.split(";").map(c=>c.split("=")[0].trim()).filter(n=>/^_ga/.test(n)).forEach(n=>{const d=location.hostname.replace(/^www\./,"");["",";domain=."+d,";domain="+d].forEach(x=>document.cookie=n+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/"+x)})}catch(e){}if(gaOn){window["ga-disable-"+GA_ID]=true}}
+const track=(n,p)=>{if(!gaOn)return;try{gtag("event",n,Object.assign({lingua:LANG},p||{}))}catch(e){}};
+function consentUI(force){const box=document.getElementById("ck");
+  document.getElementById("ckH").textContent=T("Cookie e statistiche","Cookies and statistics");
+  document.getElementById("ckT").innerHTML="";document.getElementById("ckT").append(
+    T("Questo sito usa solo cookie tecnici necessari. Con il tuo consenso attivo anche Google Analytics, per sapere in forma statistica quali pagine e foto vengono viste: niente pubblicità né profilazione. Puoi cambiare idea quando vuoi dal link «Cookie» in fondo alla pagina. ","This site only uses necessary technical storage. With your consent I also enable Google Analytics, to see in aggregate which pages and photos are viewed: no advertising or profiling. You can change your mind anytime via the «Cookies» link at the bottom of the page. "),
+    el("a",{href:"#privacy",onclick:()=>{box.hidden=true}},T("Informativa privacy e cookie","Privacy and cookie policy")));
+  document.getElementById("ckY").textContent=T("Accetta","Accept");document.getElementById("ckN").textContent=T("Rifiuta","Reject");
+  document.getElementById("ckX").textContent="×";document.getElementById("ckX").setAttribute("aria-label",T("Chiudi e rifiuta","Close and reject"));
+  box.hidden=!(force||!ck())}
+function setConsent(v){try{localStorage.setItem("mb_consent",JSON.stringify({v,t:Date.now(),ver:CK_VER}))}catch(e){}
+  document.getElementById("ck").hidden=true;if(v==="yes"){window["ga-disable-"+GA_ID]=false;gaLoad();track("page_view",pv())}else gaOff()}
+document.getElementById("ckY").onclick=()=>setConsent("yes");document.getElementById("ckN").onclick=()=>setConsent("no");document.getElementById("ckX").onclick=()=>setConsent("no");
 const pv=()=>{const h=location.hash.slice(1);return{page_title:(h?(S.find(s=>s.id===h)?.t||h):"home"),page_location:location.origin+"/"+h,page_path:"/"+h}};
+if(ck()?.v==="yes")gaLoad();
 document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest("a");if(!a)return;const u=a.getAttribute("href")||"";
   if(u.startsWith("mailto:"))track("contact",{method:"email"});else if(u.includes("wa.me"))track("contact",{method:"whatsapp"});else if(u.includes("instagram.com"))track("contact",{method:"instagram"})});
+
+/* informativa */
+function privacy(){
+  const v=el("div",{class:"view wrap pv"});const H=(t)=>el("h2",{},t),P=(t)=>el("p",{},t);
+  const L=(it,en)=>T(it,en);
+  v.append(el("header",{class:"pb-h"},el("h1",{},T("Privacy e cookie","Privacy and cookies")),el("p",{},T("Informativa ai sensi degli artt. 13-14 del Regolamento UE 2016/679 (GDPR) e delle Linee guida cookie del Garante privacy (10 giugno 2021). Ultimo aggiornamento: 8 ottobre 2026.","Information under Articles 13-14 of EU Regulation 2016/679 (GDPR) and the Italian Data Protection Authority cookie guidelines (10 June 2021). Last updated: 8 October 2026."))));
+  const b=el("div",{class:"pv-b"});
+  b.append(
+    H(T("Titolare del trattamento","Data controller")),P(T("Matteo Barbieri, fotografo, Ferrara (FE), Italia. Contatto per ogni richiesta sulla privacy: ","Matteo Barbieri, photographer, Ferrara, Italy. Contact for any privacy request: ")),
+    el("p",{},el("a",{href:"mailto:"+CONTACT.email},CONTACT.email)),
+    H(T("Quali dati e perché","What data and why")),
+    el("ul",{},
+      el("li",{},el("b",{},T("Navigazione. ","Browsing. ")),T("Il sito è ospitato da GitHub Pages (GitHub Inc., USA), che per sicurezza registra nei log del server l'indirizzo IP dei visitatori. Base giuridica: legittimo interesse al funzionamento e alla sicurezza del sito.","The site is hosted on GitHub Pages (GitHub Inc., USA), which logs visitors' IP addresses for security. Legal basis: legitimate interest in running and securing the site.")),
+      el("li",{},el("b",{},T("Modulo di richiesta. ","Request form. ")),T("Nome, email, telefono facoltativo, data, luogo e messaggio servono solo a rispondere e preparare un preventivo. Il modulo è inoltrato alla mia casella tramite il servizio FormSubmit (formsubmit.co). Base giuridica: misure precontrattuali richieste da te (art. 6.1.b GDPR). Conservo i messaggi per il tempo necessario a gestire la richiesta e l'eventuale incarico, e comunque non oltre 24 mesi salvo obblighi fiscali.","Name, email, optional phone, date, place and message are used only to reply and prepare a quote. The form is delivered to my inbox through the FormSubmit service (formsubmit.co). Legal basis: pre-contractual steps you request (Art. 6.1.b GDPR). Messages are kept as long as needed for the request and any job, and no longer than 24 months unless tax rules require otherwise.")),
+      el("li",{},el("b",{},T("Statistiche (solo con consenso). ","Statistics (only with consent). ")),T("Se accetti, uso Google Analytics 4 (Google Ireland Ltd / Google LLC) per contare visite, pagine viste, clic sui pulsanti di contatto e invio del modulo. Indirizzo IP non memorizzato da GA4, segnali pubblicitari e Google Signals disattivati, conservazione dei dati 2 mesi. I dati possono essere trasferiti negli USA: Google aderisce all'EU-U.S. Data Privacy Framework. Base giuridica: consenso (art. 6.1.a GDPR), revocabile in ogni momento.","If you accept, I use Google Analytics 4 (Google Ireland Ltd / Google LLC) to count visits, page views, clicks on contact buttons and form submissions. GA4 does not store IP addresses, advertising features and Google Signals are off, data retention is 2 months. Data may be transferred to the USA: Google is certified under the EU-U.S. Data Privacy Framework. Legal basis: consent (Art. 6.1.a GDPR), which you can withdraw at any time.")),
+      el("li",{},el("b",{},"WhatsApp, Instagram, email. "),T("Sono semplici link: nessun dato passa a Meta o ad altri finché non li apri tu. Da quel momento valgono le informative di quei servizi.","These are plain links: no data reaches Meta or others until you open them. From then on, those services' own policies apply."))),
+    H(T("Cookie e memorizzazione nel browser","Cookies and browser storage")),
+    el("table",{class:"ckt"},el("thead",{},el("tr",{},el("th",{},T("Nome","Name")),el("th",{},T("Tipo","Type")),el("th",{},T("Scopo","Purpose")),el("th",{},T("Durata","Duration")))),
+      el("tbody",{},
+        el("tr",{},el("td",{},"mb_consent"),el("td",{},T("Tecnico, localStorage","Technical, localStorage")),el("td",{},T("Ricorda la tua scelta sui cookie","Remembers your cookie choice")),el("td",{},T("6 mesi","6 months"))),
+        el("tr",{},el("td",{},"lang"),el("td",{},T("Tecnico, localStorage","Technical, localStorage")),el("td",{},T("Ricorda la lingua IT/EN","Remembers IT/EN language")),el("td",{},T("Fino a cancellazione","Until cleared"))),
+        el("tr",{},el("td",{},"_ga"),el("td",{},T("Statistico di terza parte (Google), solo con consenso","Third-party statistics (Google), consent only")),el("td",{},T("Distingue i visitatori in forma anonima","Distinguishes visitors anonymously")),el("td",{},T("2 anni","2 years"))),
+        el("tr",{},el("td",{},"_ga_S2FGT9EMC4"),el("td",{},T("Statistico di terza parte (Google), solo con consenso","Third-party statistics (Google), consent only")),el("td",{},T("Mantiene lo stato della sessione","Keeps session state")),el("td",{},T("2 anni","2 years"))))),
+    P(T("I caratteri tipografici sono ospitati su questo sito, senza collegamenti a Google Fonts. Prima del tuo consenso non viene caricato nessuno strumento di Google Analytics. Chiudere il banner con la X equivale a rifiutare. La scelta viene richiesta di nuovo dopo 6 mesi.","Fonts are hosted on this site, with no calls to Google Fonts. No Google Analytics code is loaded before your consent. Closing the banner with the X counts as a rejection. You will be asked again after 6 months.")),
+    el("p",{},el("button",{type:"button",class:"btn",onclick:()=>consentUI(true)},T("Modifica le preferenze cookie","Change cookie preferences"))),
+    H(T("I tuoi diritti","Your rights")),
+    P(T("Puoi chiedere in ogni momento accesso, rettifica, cancellazione, limitazione, portabilità dei tuoi dati e opporti al trattamento (artt. 15-22 GDPR), scrivendo all'email sopra. Hai anche diritto di proporre reclamo al Garante per la protezione dei dati personali (garanteprivacy.it).","You can request access, correction, deletion, restriction, portability, or object to processing at any time (Arts. 15-22 GDPR) by writing to the email above. You may also lodge a complaint with the Italian Data Protection Authority (garanteprivacy.it).")),
+    P(T("I dati non sono usati per decisioni automatizzate né venduti o ceduti a terzi per fini commerciali.","Data is not used for automated decision-making, nor sold or passed on to third parties for marketing.")));
+  v.append(b);return v}
 
 /* router */
 function go(id){location.hash=id}
@@ -509,6 +565,7 @@ function render(keep){
   if(h==="info"||h==="contatti"){v=info();nav="info"}
   else if(h==="servizi"){v=servizi();nav="servizi"}
   else if(h==="pubblicazioni"||h==="press"){v=pubblicazioni();nav="pubblicazioni"}
+  else if(h==="privacy"||h==="cookie"){v=privacy();nav="privacy"}
   else if(h==="ritratti"){v=home("ritratti");nav="ritratti"}
   else if(h==="lavori"){v=home("lavori");nav="lavori"}
   else if(h==="live"){v=home("live")}
