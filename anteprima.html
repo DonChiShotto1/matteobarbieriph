@@ -49,12 +49,45 @@ img{display:block;width:100%;height:100%;object-fit:cover;background:var(--panel
 .mas .it{break-inside:avoid;margin-bottom:clamp(28px,3vw,44px)}
 @media(max-width:1000px){.mas{columns:2}}@media(max-width:560px){.mas{columns:1}}
 .sub{margin-top:clamp(56px,7vw,100px)}
+/* E sfalsata */
+.stg{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(14px,1.6vw,24px);row-gap:clamp(40px,6vw,96px)}
+.stg .it{align-self:start}
+.stg .n{font:400 12px/1 var(--sans);letter-spacing:.1em;color:var(--signal);margin-right:10px}
+@media(max-width:760px){.stg .it{grid-column:1/-1!important;margin-top:0!important}.stg .ph{aspect-ratio:4/5!important}}
+/* F orizzontale */
+.hz{scroll-padding-inline:var(--gut);display:flex;gap:clamp(14px,1.6vw,24px);overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:18px;margin-inline:calc(var(--gut)*-1);padding-inline:var(--gut);scrollbar-width:thin;scrollbar-color:#333 transparent}
+.hz .it{flex:0 0 auto;scroll-snap-align:start}
+.hz .ph{height:min(66vh,640px)}.hz img{width:auto;height:100%}
+.hint{display:flex;justify-content:space-between;margin-top:14px}
+.hint button{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);border:1px solid var(--hair);padding:8px 14px;border-radius:999px}
+.hint button:hover{color:var(--paper);border-color:var(--paper)}
+@media(max-width:760px){.hz{flex-direction:column;overflow:visible;margin-inline:0;padding-inline:0}.hz .ph{height:auto}.hz img{width:100%;height:auto}.hint{display:none}}
+/* G schermo intero */
+.fs{margin-inline:calc(var(--gut)*-1)}
+.fs a{position:relative;display:block;height:min(92vh,1000px);overflow:hidden;border-top:1px solid var(--ink)}
+.fs img{position:absolute;inset:0;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.fs a:hover img{transform:scale(1.025)}
+.fs a:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.72))}
+.fs .tx{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(20px,4vw,48px);z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.fs .tx b{font:400 clamp(48px,9vw,150px)/.9 var(--serif)}
+.fs .tx span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#d8d6d2;text-align:right}
+.fs .tx i{font-style:normal;color:var(--signal);display:block;margin-bottom:6px}
+@media(max-width:760px){.fs a{height:78vh}.fs .tx span{text-align:left}}
+/* H provino */
+.ct{background:#050505;border:1px solid var(--hair);padding:clamp(10px,1.4vw,22px);display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(18px,1.6vw,26px) clamp(8px,.8vw,12px)}
+.ct .it .ph{aspect-ratio:3/2;outline:1px solid #1d1d1d}
+.ct .it img{filter:saturate(.95)}
+.ct .fr{display:flex;justify-content:space-between;font:500 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.08em;color:#c48a2c;padding:6px 0 3px}
+.ct .nm{font:400 17px/1.15 var(--serif)}
+.ct .it.pick .ph{outline:2px solid var(--signal);outline-offset:3px}
+.ct .it.pick .fr b{color:var(--signal)}
+@media(max-width:1000px){.ct{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:560px){.ct{grid-template-columns:repeat(2,minmax(0,1fr))}}
 footer{padding:80px var(--gut) 40px;color:var(--mute);font-size:12px}
 </style></head><body>
 <header class="top"><div class="wrap">
 <a class="logo" href="./">MATTEO<i></i>BARBIERI</a>
 <div class="sw" role="group" aria-label="Impaginazione">
-<button data-v="A">A · Mista</button><button data-v="B">B · Rivista</button><button data-v="C">C · Mosaico</button><button data-v="D">D · Indice nomi</button>
+<button data-v="A">A · Mista</button><button data-v="B">B · Rivista</button><button data-v="C">C · Mosaico</button><button data-v="D">D · Indice nomi</button><button data-v="E">E · Rivista sfalsata</button><button data-v="F">F · Orizzontale</button><button data-v="G">G · Schermo intero</button><button data-v="H">H · Provino</button>
 </div></div></header>
 <main class="wrap" id="app"></main>
 <div class="float" id="fl"><img alt=""></div>
@@ -86,11 +119,29 @@ B(){const w=el("div");w.append(note("B · Rivista","Righe che si alternano come 
 C(){const w=el("div");w.append(note("C · Mosaico","Ogni copertina tiene la sua forma originale, verticale o orizzontale, e le colonne si incastrano. Niente tagli e niente caselle spaiate, qualunque sia il numero di serie."));
   w.append(head("Live",L.length+" serie"));const m=el("div",{class:"mas"});
   L.forEach(s=>{const it=item(s,"",sm(s));it.querySelector(".ph").style.aspectRatio=s.c[1]+"/"+s.c[2];m.append(it)});w.append(m);return w},
+E(){const w=el("div");w.append(note("E · Rivista sfalsata","Evoluzione della B: stesse foto grandi e piccole, ma posizionate fuori asse, con spazio nero attorno e altezze sfalsate, come un'impaginazione stampata. Ogni tanto una foto da sola al centro fa da pausa. Nessuna casella spaiata, a qualunque numero."));
+  w.append(head("Live",L.length+" serie"));const g=el("div",{class:"stg"});
+  const P=[[["1/span 7","3/2",0],["9/span 4","4/5","14%"]],[["2/span 4","4/5",0],["7/span 6","3/2","9%"]],[["3/span 8","16/9",0]]];
+  let i=0,c=0;while(i<L.length){const row=P[c%3];row.forEach(([col,ar,mt],j)=>{if(i>=L.length)return;const s=L[i++];const big1=ar!=="4/5";const it=item(s,"",big1?big(s):sm(s),big1);it.style.gridColumn=col;it.style.marginTop=mt||0;it.querySelector(".ph").style.aspectRatio=ar;it.querySelector(".cap b").prepend(el("span",{class:"n"},String(i).padStart(2,"0")));g.append(it)});c++}
+  w.append(g);return w},
+F(){const w=el("div");w.append(note("F · Orizzontale","Da PC le copertine scorrono di lato in una lunga striscia, tutte alla stessa altezza e con la loro forma originale, come i fotogrammi di un rullino. Si scorre con la rotellina, il trackpad o le frecce. Da telefono diventano una colonna verticale."));
+  w.append(head("Live",L.length+" serie"));const h=el("div",{class:"hz"});
+  L.forEach(s=>{const it=item(s,"",s.c[1]>s.c[2]?big(s):sm(s));it.querySelector(".ph").style.aspectRatio=s.c[1]+"/"+s.c[2];h.append(it)});
+  h.addEventListener("wheel",e=>{if(Math.abs(e.deltaY)>Math.abs(e.deltaX)&&matchMedia("(min-width:761px)").matches){const max=h.scrollWidth-h.clientWidth;if((e.deltaY>0&&h.scrollLeft<max-2)||(e.deltaY<0&&h.scrollLeft>2)){e.preventDefault();h.scrollLeft+=e.deltaY}}},{passive:false});
+  w.append(h,el("div",{class:"hint"},el("button",{type:"button",onclick:()=>h.scrollBy({left:-h.clientWidth*.8,behavior:"smooth"})},"← Indietro"),el("button",{type:"button",onclick:()=>h.scrollBy({left:h.clientWidth*.8,behavior:"smooth"})},"Avanti →")));
+  w.append(el("p",{class:"small",style:"margin-top:40px"},"Sotto la striscia continuerebbero Ritratti e Lavori, ognuno con la sua striscia."));return w},
+G(){const w=el("div");w.append(note("G · Schermo intero","Ogni concerto occupa tutto lo schermo, con il nome enorme sopra la foto. Scorrendo si passa da un concerto all'altro come in una mostra. È la più d'impatto; è anche la più lunga, quindi funziona meglio con 12-18 serie forti."));
+  const f=el("div",{class:"fs"});L.forEach((s,i)=>{f.append(el("a",{href:href(s)},el("img",{src:big(s),alt:s.t,loading:i<2?"eager":"lazy",style:s.c[2]>s.c[1]?"object-position:50% 18%":""}),el("div",{class:"tx"},el("b",{},s.t),el("span",{},el("i",{},String(i+1).padStart(2,"0")+" / "+L.length),s.p+" — "+s.d))))});
+  w.append(f);return w},
+H(){const w=el("div");w.append(note("H · Provino","Come un foglio provini a contatto: tante copertine piccole in fila, con i numeri di fotogramma, e le serie migliori cerchiate in rosso come si fa con la matita grassa. Si vede tutto il lavoro in un colpo d'occhio; molto 'da fotografo'."));
+  w.append(head("Live",L.length+" serie"));const g=el("div",{class:"ct"});
+  L.forEach((s,i)=>{const it=el("a",{class:"it"+(i<4?" pick":""),href:href(s)},el("div",{class:"ph"},el("img",{src:sm(s),alt:s.t,loading:"eager"})),el("div",{class:"fr"},el("b",{},String(i+1).padStart(2,"0")+"A"),el("span",{},"▸ "+(s.d.match(/\d{4}/g)||[""]).pop())),el("div",{class:"nm"},s.t));g.append(it)});
+  w.append(g);return w},
 D(){const w=el("div");w.append(note("D · Indice nomi","Solo i nomi, grandi, uno per riga. Passandoci sopra col mouse compare la foto di copertina; da telefono la miniatura è accanto al nome. È il più elegante e il più veloce da aggiornare; le foto si vedono dentro le serie."));
   w.append(head("Live",L.length+" serie"));w.append(list(L,"big"));return w}};
 const app=document.getElementById("app"),fl=document.getElementById("fl");
 function show(v){app.innerHTML="";app.append(V[v]());document.querySelectorAll(".sw button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===v));history.replaceState(null,"","#"+v);scrollTo(0,0)}
 document.querySelectorAll(".sw button").forEach(b=>b.onclick=()=>show(b.dataset.v));
 addEventListener("mousemove",e=>{const a=e.target.closest&&e.target.closest(".ix.big a");if(a){fl.firstChild.src=a.dataset.img;fl.style.opacity=1;fl.style.left=e.clientX+"px";fl.style.top=e.clientY+"px"}else fl.style.opacity=0});
-show(/^#[ABCD]$/.test(location.hash)?location.hash[1]:"A");
+show(/^#[A-H]$/.test(location.hash)?location.hash[1]:"E");
 </script></body></html>
