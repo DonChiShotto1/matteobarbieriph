@@ -520,7 +520,7 @@ function reqForm(){
   locationInput.addEventListener("keydown",e=>{
     if(!locationMatches.length)return;
     if(e.key==="ArrowDown"||e.key==="ArrowUp"){
-      e.preventDefault();locationActive=(locationActive+(e.key==="ArrowDown"?1:-1)+locationMatches.length)%locationMatches.length;
+      e.preventDefault();locationActive=e.key==="ArrowDown"?(locationActive+1)%locationMatches.length:(locationActive<=0?locationMatches.length-1:locationActive-1);
       locationList.querySelectorAll('[role="option"]').forEach((option,index)=>option.setAttribute("aria-selected",String(index===locationActive)));
       locationInput.setAttribute("aria-activedescendant","location-option-"+locationActive);
     }else if(e.key==="Enter"&&!locationList.hidden&&locationActive>=0){e.preventDefault();chooseLocation(locationMatches[locationActive])}
