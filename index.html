@@ -287,7 +287,7 @@ function series(id){
 }
 function info(){
   const v=el("div",{class:"view wrap"});
-  const pic=S.find(s=>s.id==="elephant-brain").im[6]||S[0].im[0];
+  const pic=S.find(s=>s.id==="johnny-marr").im[1]||S[0].im[0];
   const facts=el("dl",{class:"facts"},
     el("div",{},el("dt",{},"Lavoro"),el("dd",{},"Live music e festival · Reportage urbani e sociali · Promo band e ritratti editoriali · Lifestyle, pet e family · Brand ed eventi")),
     el("div",{},el("dt",{},"Pubblicazioni"),el("dd",{},"Spazio Rock · Booklet Magazine · The Festivals Backpack")),
@@ -302,7 +302,7 @@ function info(){
       el("p",{},"Lavoro principalmente tra Ferrara, Bologna e il Veneto, e pubblico con Spazio Rock, Booklet Magazine e The Festivals Backpack."),
       el("p",{lang:"en",class:"en"},"Photographer specialising in live events, music festivals and urban environments. Based between Ferrara and Bologna, working across Northern Italy for bands, artists and cultural organisations."),
       facts),
-    el("div",{class:"img"},el("img",{src:"f/"+pic[0]+".jpg",alt:"Elephant Brain all'Harmonya Fest",loading:"lazy"}),el("div",{class:"small"},"Elephant Brain — Harmonya Fest, Bologna — 02.10.2026"))));
+    el("div",{class:"img"},el("img",{src:"f/"+pic[0]+".jpg",alt:"Johnny Marr con la chitarra in controluce",loading:"lazy"}),el("div",{class:"small"},"Johnny Marr — Estragon, Bologna — 08.11.2025"))));
   v.append(reqForm());
   return v;
 }
