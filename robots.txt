@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://donchishotto1.github.io/matteobarbieriph/sitemap.xml
