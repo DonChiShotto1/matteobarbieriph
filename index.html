@@ -349,7 +349,7 @@ function reqForm(){
     if(!fd.get("nome")||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(fd.get("email")||"")){m.textContent="Inserisci nome ed email valida.";return}
     const o=Object.fromEntries(fd.entries());o._subject="Richiesta dal portfolio: "+o.tipo+(o.data?" · "+o.data:"");o._template="table";o._captcha="false";o._replyto=o.email;
     b.disabled=true;m.textContent="Invio in corso…";
-    try{const r=await fetch("https://formsubmit.co/ajax/"+CONTACT.email,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(o)});
+    try{const r=await fetch("https://formsubmit.co/ajax/55916b2bba5982119ef02fcf55c73fa2",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(o)});
       const j=await r.json().catch(()=>({}));
       if(r.ok&&String(j.success)!=="false"){f.reset();m.textContent="Grazie, richiesta inviata. Ti rispondo presto."}else throw 0}
     catch(_){const body=encodeURIComponent(Object.entries(o).filter(([k])=>!k.startsWith("_")).map(([k,v])=>k+": "+v).join("\n"));
