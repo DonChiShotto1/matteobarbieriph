@@ -186,6 +186,11 @@ footer a:hover{color:var(--paper)}
 .fm .send{grid-column:1/-1;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
 .fm .msg{font-size:14px;color:var(--mute)}
 .fm .hp{position:absolute;left:-9999px}
+.loc-auto{position:relative;width:100%}.loc-auto input{width:100%}
+.loc-suggestions{position:absolute;inset:100% 0 auto;z-index:15;max-height:240px;overflow:auto;margin:0;padding:4px 0;list-style:none;background:#141414;border:1px solid var(--hair);box-shadow:0 8px 22px rgba(0,0,0,.45)}
+.loc-suggestions[hidden]{display:none!important}
+.loc-suggestions button{display:block;width:100%;text-align:left;padding:10px 12px;color:var(--paper);cursor:pointer}
+.loc-suggestions button:hover,.loc-suggestions button[aria-selected="true"],.loc-suggestions button:focus{background:#262626;outline:0}
 @media (max-width:860px){.req{grid-template-columns:1fr}.fm{grid-template-columns:1fr}}
 /* lightbox */
 .lb{position:fixed;inset:0;z-index:50;background:#050505;display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 48px) 56px calc(env(safe-area-inset-bottom,0px) + 48px)}
@@ -487,8 +492,7 @@ function reqForm(){
     el("label",{},"Email",el("input",{name:"email",type:"email",required:"",autocomplete:"email",placeholder:T("nome@esempio.it","name@example.com")})),
     el("div",{class:"w"},el("label",{},T("Tipo di lavoro","Type of job")),el("div",{class:"chips",role:"radiogroup","aria-label":T("Tipo di lavoro","Type of job")},...tipi.map((t,i)=>el("label",{},el("input",{type:"radio",name:"tipo",value:t[0],...(i===0?{checked:""}:{})}),el("span",{},T(...t)))))),
     el("label",{},T("Data","Date"),el("input",{name:"data",type:"date"})),
-    el("label",{},T("Luogo","Location"),el("input",{name:"luogo",list:"luoghi-suggeriti",placeholder:T("Città o locale","City or venue")})),
-    el("datalist",{id:"luoghi-suggeriti"},...["Ferrara","Bologna","Milano","Bari","Riolo Terme","Rioveggio","Locomotiv Club — Bologna","Estragon Club — Bologna","Sequoie Music Park — Bologna","Caserme Rosse — Bologna","Alchemica Music Club — Bologna","Ferrara Summer Festival","Ferrara Sotto le Stelle","Frogstock — Riolo Terme","Parco della Musica — Milano","Confindustria — Bari","Studio Olistico Kairos — Rioveggio"].map(value=>el("option",{value}))),
+    el("label",{},T("Luogo","Location"),el("div",{class:"loc-auto"},el("input",{name:"luogo",placeholder:T("Città o locale","City or venue"),role:"combobox","aria-autocomplete":"list","aria-controls":"location-options","aria-expanded":"false"}),el("ul",{id:"location-options",class:"loc-suggestions",role:"listbox",hidden:""}))),
     el("label",{class:"w"},T("Telefono (facoltativo)","Phone (optional)"),el("input",{name:"telefono",type:"tel",autocomplete:"tel",placeholder:"+39"})),
     el("label",{class:"w"},T("Messaggio","Message"),el("textarea",{name:"messaggio",placeholder:T("Raccontami l'evento: artisti, orari, cosa ti serve.","Tell me about the event: artists, times, what you need.")})),
     el("input",{type:"hidden",name:"_subject",value:""}),
@@ -499,6 +503,30 @@ function reqForm(){
     el("input",{type:"text",name:"_honey",class:"hp",tabindex:"-1",autocomplete:"off","aria-hidden":"true"}),
     el("div",{class:"send"},el("button",{class:"btn",type:"submit"},T("Invia richiesta →","Send request →")),el("button",{class:"btn wa-b",type:"button",onclick:()=>waSend(f)},T("Invia su WhatsApp","Send via WhatsApp")),el("span",{class:"msg",role:"status","aria-live":"polite"},hasConfirmation?T("Richiesta ricevuta: l’ho presa in carico e ti ho inviato una conferma via email.","Request received: I’ve got it and sent you a confirmation email."):T("Ti rispondo con disponibilità e preventivo.","I’ll reply with availability and a quote."))),
     el("p",{class:"w fm-note"},T("Uso i dati solo per risponderti. ","I only use your data to reply to you. "),el("a",{href:"#privacy"},T("Informativa privacy","Privacy policy"))));
+  const locationInput=f.querySelector('[name="luogo"]'),locationList=f.querySelector("#location-options");
+  const locations=["Ferrara","Bologna","Milano","Bari","Riolo Terme","Rioveggio","Casola Valsenio","Reggio Emilia","Modena","Ravenna","Venezia","Locomotiv Club — Bologna","Estragon Club — Bologna","Covo Club — Bologna","Alchemica Music Club — Bologna","Sequoie Music Park — Bologna","Caserme Rosse — Bologna","Ferrara Summer Festival","Ferrara Sotto le Stelle","Frogstock — Riolo Terme","Parco della Musica — Milano","Festa Reggio — Reggio Emilia","Suonobuono Festival — Casola Valsenio","Studio Olistico Kairos — Rioveggio","Confindustria — Bari"];
+  let locationMatches=[],locationActive=-1;
+  const normalizePlace=value=>value.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+  function hideLocations(){locationList.hidden=true;locationInput.setAttribute("aria-expanded","false");locationInput.removeAttribute("aria-activedescendant");locationActive=-1}
+  function chooseLocation(value){locationInput.value=value;hideLocations();locationInput.focus()}
+  function showLocations(){
+    const query=normalizePlace(locationInput.value.trim());
+    locationMatches=query?locations.filter(place=>normalizePlace(place).includes(query)).slice(0,7):[];
+    locationActive=-1;locationList.replaceChildren();
+    locationMatches.forEach((place,index)=>locationList.append(el("li",{role:"presentation"},el("button",{type:"button",id:"location-option-"+index,role:"option","aria-selected":"false",onmousedown:e=>e.preventDefault(),onclick:()=>chooseLocation(place)},place))));
+    locationList.hidden=locationMatches.length===0;locationInput.setAttribute("aria-expanded",String(locationMatches.length>0));locationInput.removeAttribute("aria-activedescendant");
+  }
+  locationInput.addEventListener("input",showLocations);
+  locationInput.addEventListener("keydown",e=>{
+    if(!locationMatches.length)return;
+    if(e.key==="ArrowDown"||e.key==="ArrowUp"){
+      e.preventDefault();locationActive=(locationActive+(e.key==="ArrowDown"?1:-1)+locationMatches.length)%locationMatches.length;
+      locationList.querySelectorAll('[role="option"]').forEach((option,index)=>option.setAttribute("aria-selected",String(index===locationActive)));
+      locationInput.setAttribute("aria-activedescendant","location-option-"+locationActive);
+    }else if(e.key==="Enter"&&!locationList.hidden&&locationActive>=0){e.preventDefault();chooseLocation(locationMatches[locationActive])}
+    else if(e.key==="Escape")hideLocations();
+  });
+  locationInput.addEventListener("blur",()=>setTimeout(hideLocations,120));
   f.addEventListener("submit",e=>{
     e.preventDefault();const m=f.querySelector(".msg");
     const fd=new FormData(f);
