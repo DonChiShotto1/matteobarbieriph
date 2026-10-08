@@ -18,6 +18,11 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600&display=swap">
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+(function(){var c=null;try{c=localStorage.getItem("mb_consent")}catch(e){}
+gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:c==="yes"?"granted":"denied"});})();
+gtag("js",new Date());gtag("config","G-S2FGT9EMC4",{send_page_view:false});</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2FGT9EMC4"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Matteo Barbieri Photography", "description": "Fotografia live, festival, ritratti e reportage. Live music, festival and reportage photographer.", "url": "https://matteobarbieri.it/", "image": "https://matteobarbieri.it/og.jpg", "email": "matte.mog@gmail.com", "telephone": "+393404943680", "areaServed": ["Ferrara", "Bologna", "Emilia-Romagna", "Veneto", "Italia"], "address": {"@type": "PostalAddress", "addressLocality": "Ferrara", "addressRegion": "Emilia-Romagna", "addressCountry": "IT"}, "founder": {"@type": "Person", "name": "Matteo Barbieri", "jobTitle": "Fotografo", "sameAs": ["https://instagram.com/matteobarbieriph", "https://www.spaziorock.it/author/matteo-barbieri/"]}, "sameAs": ["https://instagram.com/matteobarbieriph"]}</script>
 <style>
 /* Layout: an editorial archive, the way working music photographers present work — an index of shows, each opening as its own sequence of large frames on black. Type stays small and quiet; the photographs carry the page. Single dark look on purpose. */
@@ -210,6 +215,10 @@ footer a:hover{color:var(--paper)}
 .fs .tx span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#d8d6d2;text-align:right;max-width:44ch}
 .fs .tx i{font-style:normal;color:var(--signal);display:block;margin-bottom:6px}
 @media (max-width:760px){.fs a{height:min(80svh,760px)}.fs .tx span{text-align:left}}
+.ck{position:fixed;left:18px;bottom:18px;z-index:45;max-width:min(440px,calc(100vw - 210px));background:#141414;border:1px solid var(--hair);padding:16px 18px;display:flex;flex-direction:column;gap:12px;font-size:13px;line-height:1.5}
+.ck p{margin:0;color:#c9c8c4}.ck div{display:flex;gap:14px;align-items:center}.ck .btn{padding:10px 18px;font-size:12px}
+.ckn{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}.ckn:hover{color:var(--paper)}
+@media(max-width:560px){.ck{left:12px;right:12px;bottom:72px;max-width:none}}
 /* lingua */
 .lang{font-size:12px;letter-spacing:.1em;color:var(--mute);border:1px solid var(--hair);padding:5px 8px;margin-left:4px}
 .lang b{color:var(--paper);font-weight:500}
@@ -255,6 +264,7 @@ footer a:hover{color:var(--paper)}
 <a href="https://wa.me/393404943680" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp" class="wa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-3.6A8 8 0 1 1 8 19.1z"/><path d="M9 8.6c0 3 2.4 6.2 6 6.6l1.2-1.4-1.9-1-0.9.8c-1-.4-2.1-1.5-2.5-2.5l.8-.9-1-1.9z" class="f"/></svg></a>
 </div>
 <footer><div class="wrap" id="foot"></div></footer>
+<div class="ck" id="ck" hidden role="region" aria-label="Cookie"><p id="ckT"></p><div><button type="button" class="btn" id="ckY"></button><button type="button" class="ckn" id="ckN"></button></div></div>
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true">
   <img id="lbImg" alt="">
@@ -298,7 +308,7 @@ const PUBS=[
 let LANG=(()=>{try{const q=new URLSearchParams(location.search).get("lang");if(q==="en"||q==="it")return q;const v=localStorage.getItem("lang");if(v)return v}catch(e){}return /^it\b/i.test(navigator.language||"it")?"it":"en"})();
 const T=(it,en)=>LANG==="en"?en:it;
 const F=(s,k)=>(LANG==="en"&&s[k+"En"])||s[k];
-function setLang(l){LANG=l;try{localStorage.setItem("lang",l)}catch(e){}document.documentElement.lang=l;chrome();render(true)}
+function setLang(l){LANG=l;try{localStorage.setItem("lang",l)}catch(e){}document.documentElement.lang=l;chrome();consentUI(!document.getElementById("ck").hidden);render(true);track("lingua",{nuova:l})}
 
 const app=document.getElementById("app");
 const el=(t,a={},...k)=>{const e=document.createElement(t);for(const[x,y]of Object.entries(a)){if(x==="class")e.className=y;else if(x.startsWith("on"))e.addEventListener(x.slice(2),y);else e.setAttribute(x,y)}k.forEach(c=>c!=null&&e.append(c));return e};
@@ -316,7 +326,7 @@ function chrome(){
   const m=fab.querySelector('[data-k="mail"]');m.href="mailto:"+CONTACT.email+"?subject="+encodeURIComponent(T("Richiesta servizio fotografico","Photography enquiry"));m.setAttribute("aria-label",T("Scrivimi una email","Send me an email"));
   const ft=document.getElementById("foot");ft.innerHTML="";
   ft.append(el("span",{},el("span",{class:"dot","aria-hidden":"true"}),"Matteo Barbieri · Ferrara · Bologna"),
-    el("span",{},el("a",{href:"mailto:"+CONTACT.email},CONTACT.email)," · ",el("a",{href:"https://instagram.com/"+CONTACT.instagram,...ext},"@"+CONTACT.instagram)," · ",el("a",{href:"#pubblicazioni"},T("Pubblicazioni","Press"))," · ",el("a",{href:"#servizi"},T("Servizi","Services"))," · ",el("a",{href:"#contatti"},T("Contatti","Contact"))));
+    el("span",{},el("a",{href:"mailto:"+CONTACT.email},CONTACT.email)," · ",el("a",{href:"https://instagram.com/"+CONTACT.instagram,...ext},"@"+CONTACT.instagram)," · ",el("a",{href:"#pubblicazioni"},T("Pubblicazioni","Press"))," · ",el("a",{href:"#servizi"},T("Servizi","Services"))," · ",el("a",{href:"#contatti"},T("Contatti","Contact"))," · ",el("button",{type:"button",style:"font-size:inherit;color:inherit",onclick:()=>consentUI(true)},"Cookie")));
   document.getElementById("lb").setAttribute("aria-label",T("Foto a schermo intero","Full screen photo"));
   document.getElementById("lbX").textContent=T("Chiudi","Close");
   document.getElementById("lbP").setAttribute("aria-label",T("Foto precedente","Previous photo"));
@@ -468,13 +478,26 @@ function reqForm(){
     b.disabled=true;m.textContent=T("Invio in corso…","Sending…");
     try{const r=await fetch("https://formsubmit.co/ajax/55916b2bba5982119ef02fcf55c73fa2",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(o)});
       const j=await r.json().catch(()=>({}));
-      if(r.ok&&String(j.success)!=="false"){f.reset();m.textContent=T("Grazie, richiesta inviata. Ti rispondo presto.","Thanks, your request has been sent. I'll get back to you soon.")}else throw 0}
+      if(r.ok&&String(j.success)!=="false"){track("generate_lead",{tipo:o.tipo});f.reset();m.textContent=T("Grazie, richiesta inviata. Ti rispondo presto.","Thanks, your request has been sent. I'll get back to you soon.")}else throw 0}
     catch(_){const body=encodeURIComponent(Object.entries(o).filter(([k])=>!k.startsWith("_")).map(([k,v])=>k+": "+v).join("\n"));
       m.innerHTML="";m.append(T("Invio non riuscito. ","Sending failed. "),el("a",{href:"mailto:"+CONTACT.email+"?subject="+encodeURIComponent(o._subject)+"&body="+body,style:"border-bottom:1px solid"},T("Mandala via email","Send it by email")))}
     b.disabled=false});
   return el("section",{class:"req",id:"richiesta"},el("div",{},el("h2",{},T("Richiedi disponibilità","Check availability")),el("p",{class:"lead"},T("Data, luogo e tipo di lavoro: con questi tre dati ti rispondo con disponibilità e preventivo. Per le urgenze c'è WhatsApp.","Date, place and type of job: with these three details I can reply with availability and a quote. For anything urgent, use WhatsApp."))),f);
 }
 async function copy(t,b){const o=b.textContent;try{await navigator.clipboard.writeText(t);b.textContent=T("Copiato","Copied")}catch(e){b.textContent=T("Seleziona e copia","Select and copy")}setTimeout(()=>b.textContent=o,1800)}
+
+
+/* analytics + consenso */
+const track=(n,p)=>{try{window.gtag&&gtag("event",n,Object.assign({lingua:LANG},p||{}))}catch(e){}};
+function consentUI(force){const c=(()=>{try{return localStorage.getItem("mb_consent")}catch(e){return null}})();const box=document.getElementById("ck");
+  document.getElementById("ckT").textContent=T("Uso Google Analytics, solo in forma statistica, per capire quali foto e pagine interessano di più. Nessuna pubblicità.","I use Google Analytics, for statistics only, to see which photos and pages people look at. No advertising.");
+  document.getElementById("ckY").textContent=T("Accetta","Accept");document.getElementById("ckN").textContent=T("Rifiuta","Decline");
+  box.hidden=!(force||!c)}
+function setConsent(v){try{localStorage.setItem("mb_consent",v)}catch(e){}try{gtag("consent","update",{analytics_storage:v==="yes"?"granted":"denied"})}catch(e){}document.getElementById("ck").hidden=true;if(v==="yes")track("page_view",pv())}
+document.getElementById("ckY").onclick=()=>setConsent("yes");document.getElementById("ckN").onclick=()=>setConsent("no");
+const pv=()=>{const h=location.hash.slice(1);return{page_title:(h?(S.find(s=>s.id===h)?.t||h):"home"),page_location:location.origin+"/"+h,page_path:"/"+h}};
+document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest("a");if(!a)return;const u=a.getAttribute("href")||"";
+  if(u.startsWith("mailto:"))track("contact",{method:"email"});else if(u.includes("wa.me"))track("contact",{method:"whatsapp"});else if(u.includes("instagram.com"))track("contact",{method:"instagram"})});
 
 /* router */
 function go(id){location.hash=id}
@@ -494,6 +517,7 @@ function render(keep){
   app.append(v);
   document.querySelectorAll("[data-nav]").forEach(a=>{if(a.dataset.nav===nav&&h!=="")a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
   window.scrollTo(0,keep===true?y:0);
+  if(keep!==true)track("page_view",pv());
 }
 addEventListener("hashchange",()=>render());
 
@@ -509,6 +533,7 @@ addEventListener("keydown",e=>{if(document.getElementById("lb").hidden)return;if
 let tx=null;const lb=document.getElementById("lb");lb.addEventListener("touchstart",e=>{tx=e.touches[0].clientX},{passive:true});lb.addEventListener("touchend",e=>{if(tx==null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)stepLB(d<0?1:-1);tx=null});
 
 chrome();
+consentUI();
 render();
 </script>
 
