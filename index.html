@@ -479,7 +479,8 @@ function waSend(f){const fd=new FormData(f);const g=k=>(fd.get(k)||"").toString(
     T("Nome: ","Name: ")+g("nome"),T("Tipo di lavoro: ","Type of job: ")+g("tipo"),g("data")?T("Data: ","Date: ")+g("data"):"",g("luogo")?T("Luogo: ","Location: ")+g("luogo"):"",g("email")?"Email: "+g("email"):"","",g("messaggio")].filter((x,i,a)=>x!==""||(a[i-1]!==""));
   track("contact",{method:"whatsapp_form",tipo:g("tipo")});window.open(WA(lines.join("\n").trim()),"_blank","noopener")}
 function reqForm(){
-  const f=el("form",{class:"fm",novalidate:""});
+  const hasConfirmation=new URLSearchParams(location.search).get("inviato")==="1";
+  const f=el("form",{class:"fm",novalidate:"",method:"POST",action:"https://formsubmit.co/55916b2bba5982119ef02fcf55c73fa2"});
   const tipi=[["Concerto / tour","Concert / tour"],["Festival","Festival"],["Promo band","Band promo"],["Evento aziendale","Corporate event"],["Brand / prodotto","Brand / product"],["Privato / famiglia","Private / family"],["Altro","Other"]];
   f.append(
     el("label",{},T("Nome","Name"),el("input",{name:"nome",required:"",autocomplete:"name",placeholder:T("Nome e cognome o band","Your name or band")})),
@@ -489,21 +490,24 @@ function reqForm(){
     el("label",{},T("Luogo","Location"),el("input",{name:"luogo",placeholder:T("Città o locale","City or venue")})),
     el("label",{class:"w"},T("Telefono (facoltativo)","Phone (optional)"),el("input",{name:"telefono",type:"tel",autocomplete:"tel",placeholder:"+39"})),
     el("label",{class:"w"},T("Messaggio","Message"),el("textarea",{name:"messaggio",placeholder:T("Raccontami l'evento: artisti, orari, cosa ti serve.","Tell me about the event: artists, times, what you need.")})),
+    el("input",{type:"hidden",name:"_subject",value:""}),
+    el("input",{type:"hidden",name:"_template",value:"table"}),
+    el("input",{type:"hidden",name:"_autoresponse",value:""}),
+    el("input",{type:"hidden",name:"_replyto",value:""}),
+    el("input",{type:"hidden",name:"_next",value:"https://matteobarbieri.it/?inviato=1#contatti"}),
     el("input",{type:"text",name:"_honey",class:"hp",tabindex:"-1",autocomplete:"off","aria-hidden":"true"}),
-    el("div",{class:"send"},el("button",{class:"btn",type:"submit"},T("Invia richiesta →","Send request →")),el("button",{class:"btn wa-b",type:"button",onclick:()=>waSend(f)},T("Invia su WhatsApp","Send via WhatsApp")),el("span",{class:"msg",role:"status","aria-live":"polite"},T("Ti rispondo con disponibilità e preventivo.","I'll reply with availability and a quote."))),
+    el("div",{class:"send"},el("button",{class:"btn",type:"submit"},T("Invia richiesta →","Send request →")),el("button",{class:"btn wa-b",type:"button",onclick:()=>waSend(f)},T("Invia su WhatsApp","Send via WhatsApp")),el("span",{class:"msg",role:"status","aria-live":"polite"},hasConfirmation?T("Richiesta ricevuta: l’ho presa in carico e ti ho inviato una conferma via email.","Request received: I’ve got it and sent you a confirmation email."):T("Ti rispondo con disponibilità e preventivo.","I’ll reply with availability and a quote."))),
     el("p",{class:"w fm-note"},T("Uso i dati solo per risponderti. ","I only use your data to reply to you. "),el("a",{href:"#privacy"},T("Informativa privacy","Privacy policy"))));
-  f.addEventListener("submit",async e=>{
-    e.preventDefault();const m=f.querySelector(".msg"),b=f.querySelector("button");
+  f.addEventListener("submit",e=>{
+    e.preventDefault();const m=f.querySelector(".msg");
     const fd=new FormData(f);
     if(!fd.get("nome")||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(fd.get("email")||"")){m.textContent=T("Inserisci nome ed email valida.","Please enter your name and a valid email.");return}
-    const o=Object.fromEntries(fd.entries());if(LANG==="en")o.lingua="English";o._subject="Richiesta dal portfolio: "+o.tipo+(o.data?" · "+o.data:"")+(LANG==="en"?" (EN)":"");o._template="table";o._captcha="false";o._replyto=o.email;
-    b.disabled=true;m.textContent=T("Invio in corso…","Sending…");
-    try{const r=await fetch("https://formsubmit.co/ajax/55916b2bba5982119ef02fcf55c73fa2",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(o)});
-      const j=await r.json().catch(()=>({}));
-      if(r.ok&&String(j.success)!=="false"){track("generate_lead",{tipo:o.tipo});f.reset();m.textContent=T("Grazie, richiesta inviata. Ti rispondo presto.","Thanks, your request has been sent. I'll get back to you soon.")}else throw 0}
-    catch(_){const body=encodeURIComponent(Object.entries(o).filter(([k])=>!k.startsWith("_")).map(([k,v])=>k+": "+v).join("\n"));
-      m.innerHTML="";m.append(T("Invio non riuscito. ","Sending failed. "),el("a",{href:"mailto:"+CONTACT.email+"?subject="+encodeURIComponent(o._subject)+"&body="+body,style:"border-bottom:1px solid"},T("Mandala via email","Send it by email")))}
-    b.disabled=false});
+    const o=Object.fromEntries(fd.entries());if(LANG==="en")o.lingua="English";
+    f.elements.namedItem("_subject").value="Richiesta dal portfolio: "+o.tipo+(o.data?" · "+o.data:"")+(LANG==="en"?" (EN)":"");
+    f.elements.namedItem("_replyto").value=o.email;
+    f.elements.namedItem("_autoresponse").value=LANG==="en"?"Thanks for getting in touch. I’ve received your request and will review it as soon as possible. I’ll reply with availability and a quote.\n\nMatteo Barbieri Photography":"Grazie per avermi scritto. Ho ricevuto e preso in carico la tua richiesta. Ti risponderò appena possibile con disponibilità e preventivo.\n\nMatteo Barbieri Photography";
+    track("generate_lead",{tipo:o.tipo});m.textContent=T("Invio in corso…","Sending…");
+    HTMLFormElement.prototype.submit.call(f)});
   return el("section",{class:"req",id:"richiesta"},el("div",{},el("h2",{},T("Richiedi disponibilità","Check availability")),el("p",{class:"lead"},T("Data, luogo e tipo di lavoro: con questi tre dati ti rispondo con disponibilità e preventivo. Per le urgenze c'è WhatsApp.","Date, place and type of job: with these three details I can reply with availability and a quote. For anything urgent, use WhatsApp."))),f);
 }
 async function copy(t,b){const o=b.textContent;try{await navigator.clipboard.writeText(t);b.textContent=T("Copiato","Copied")}catch(e){b.textContent=T("Seleziona e copia","Select and copy")}setTimeout(()=>b.textContent=o,1800)}
