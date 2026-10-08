@@ -89,10 +89,13 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 @media (max-width:760px){.s-head{grid-template-columns:1fr}.s-head .meta{text-align:left}}
 .seq{display:flex;flex-direction:column;align-items:center;gap:clamp(48px,8vw,120px)}
 .seq figure{margin:0;width:100%;display:flex;flex-direction:column;align-items:center}
+.seq figure.l picture{display:block;width:100%;max-width:1500px}
 .seq figure.l img{width:100%;max-width:1500px;height:auto}
+.seq figure.p picture{display:block;max-height:92vh;max-width:100%}
 .seq figure.p img{height:auto;max-height:92vh;width:auto;max-width:100%}
 .seq figure.pair{flex-direction:row;gap:clamp(12px,2vw,28px);justify-content:center;align-items:flex-start;max-width:1500px}
 .seq figure.pair button{flex:1 1 0;min-width:0}
+.seq figure.pair picture{display:block;width:100%}
 .seq figure.pair img{width:100%;height:auto;max-height:none}
 .seq img{display:block;cursor:zoom-in;background:var(--panel)}
 .seq figcaption{align-self:flex-start;margin-top:10px;font-size:12px;color:var(--mute);letter-spacing:.06em;font-variant-numeric:tabular-nums}
@@ -110,6 +113,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .info h1{font:400 clamp(48px,7vw,112px)/.92 var(--serif);margin:0 0 28px}
 .info p.en{font-size:15px;color:var(--mute)}
 .info p{max-width:58ch;color:#c9c8c4;font-size:17px;line-height:1.65;margin:0 0 18px}
+.info .img picture{display:block}
 .info .img img{width:100%;height:auto;display:block}
 .info .img .small{margin-top:10px}
 .facts{margin-top:40px;display:grid;gap:0;border-top:1px solid var(--hair)}
@@ -348,6 +352,11 @@ function card(s,i){
     el("div",{class:"t"},el("b",{},F(s,"t")),el("span",{},F(s,"d"))),
     s.p?el("div",{class:"p"},F(s,"p")):null);
 }
+const MOBILE_CROP_EXCEPTIONS=new Set(["battesimo-03","battesimo-05","primavera-fresh-gin-00","primavera-fresh-gin-01","primavera-fresh-gin-03"]);
+function photo(id,alt,attrs={}){
+  const sources=MOBILE_CROP_EXCEPTIONS.has(id)?[]:[el("source",{media:"(max-width:760px)",srcset:"t/"+id+".jpg"})];
+  return el("picture",{},...sources,el("img",{...attrs,src:"f/"+id+".jpg",alt}));
+}
 const KINDS={live:["Live","Live"],ritratti:["Ritratti","Portraits"],brand:["Brand e prodotto","Brand and product"],eventi:["Eventi e corporate","Events and corporate"],reportage:["Reportage e street","Reportage and street"],privati:["Privati e famiglie","Private and family"],viaggi:["Viaggi","Travel"]};
 const K=k=>T(...KINDS[k]);
 const LAV=["brand","eventi","reportage","privati","viaggi"];
@@ -358,7 +367,7 @@ function block(title,list,eager,start){
   const f=el("div",{class:"fs"});
   list.forEach((s,i)=>{const c=s.im[0];const por=c[2]>c[1];
     f.append(el("a",{href:"#"+s.id,class:por?"por":""},
-      el("img",{src:"f/"+c[0]+".jpg",alt:F(s,"t")+(s.p?", "+F(s,"p"):""),loading:eager&&i<2?"eager":"lazy",decoding:"async",style:"object-position:"+(s.pos||(por?"50% 20%":"50% 45%"))}),
+      photo(c[0],F(s,"t")+(s.p?", "+F(s,"p"):""),{loading:i===0?"eager":"lazy",decoding:"async",width:c[1],height:c[2],...(i===0?{fetchpriority:"high"}:{}),style:"object-position:"+(s.pos||(por?"50% 20%":"50% 45%"))}),
       el("div",{class:"tx"},el("b",{class:F(s,"t").length>16?"l":""},F(s,"t")),el("span",{},el("i",{},pad(i+1)+" / "+pad(list.length)),[F(s,"p"),F(s,"d")].filter(Boolean).join(" — ")))))});
   w.append(f);return w;
 }
@@ -388,11 +397,11 @@ function series(id){
     const portrait=x=>x&&x[2]>x[1];
     if(portrait(a)&&portrait(b)&&k>0){
       const f=el("figure",{class:"pair"});
-      [a,b].forEach((x,j)=>{const idx=k+j;f.append(el("button",{type:"button","aria-label":T("Ingrandisci foto ","Enlarge photo ")+(idx+1),onclick:()=>openLB(s,idx)},el("img",{src:"f/"+x[0]+".jpg",alt:tt+", "+T("foto","photo")+" "+(idx+1),loading:"lazy",width:x[1],height:x[2]})))});
+      [a,b].forEach((x,j)=>{const idx=k+j;f.append(el("button",{type:"button","aria-label":T("Ingrandisci foto ","Enlarge photo ")+(idx+1),onclick:()=>openLB(s,idx)},photo(x[0],tt+", "+T("foto","photo")+" "+(idx+1),{loading:"lazy",decoding:"async",width:x[1],height:x[2]})))});
       seq.append(f);k+=2;
     }else{
       const f=el("figure",{class:portrait(a)?"p":"l"});
-      f.append(el("img",{src:"f/"+a[0]+".jpg",alt:tt+", "+T("foto","photo")+" "+(k+1),loading:k<2?"eager":"lazy",width:a[1],height:a[2],onclick:(n=>()=>openLB(s,n))(k)}));
+      f.append(photo(a[0],tt+", "+T("foto","photo")+" "+(k+1),{loading:k===0?"eager":"lazy",decoding:"async",...(k===0?{fetchpriority:"high"}:{}),width:a[1],height:a[2],onclick:(n=>()=>openLB(s,n))(k)}));
       f.append(el("figcaption",{},pad(k+1)+" / "+pad(ims.length)));
       seq.append(f);k+=1;
     }
@@ -436,7 +445,7 @@ function info(){
       el("p",{},T("Fotografo specializzato nel racconto di eventi live, festival e realtà urbane. Con un approccio naturale e spontaneo realizzo contenuti visivi per band, artisti e organizzazioni culturali.","Photographer specialising in live music, festivals and urban stories. With a natural, unstaged approach I create images for bands, artists and cultural organisations.")),
       el("p",{},T("Lavoro principalmente tra Ferrara, Bologna e il Veneto, e pubblico con Spazio Rock, Booklet Magazine e The Festivals Backpack.","I work mainly between Ferrara, Bologna and the Veneto region, and my work appears in Spazio Rock, Booklet Magazine and The Festivals Backpack. Touring bands and international management are welcome: I answer in English.")),
       facts),
-    el("div",{class:"img"},el("img",{src:"f/"+pic[0]+".jpg",alt:T("Johnny Marr con la chitarra in controluce","Johnny Marr with his guitar, backlit"),loading:"lazy"}),el("div",{class:"small"},"Johnny Marr — Estragon, Bologna — 08.11.2025"))));
+    el("div",{class:"img"},photo(pic[0],T("Johnny Marr con la chitarra in controluce","Johnny Marr with his guitar, backlit"),{loading:"lazy",decoding:"async",width:pic[1],height:pic[2]}),el("div",{class:"small"},"Johnny Marr — Estragon, Bologna — 08.11.2025"))));
   v.append(reqForm());
   return v;
 }
