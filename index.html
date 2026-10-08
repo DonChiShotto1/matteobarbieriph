@@ -367,7 +367,7 @@ function block(title,list,eager,start){
   const f=el("div",{class:"fs"});
   list.forEach((s,i)=>{const c=s.im[0];const por=c[2]>c[1];
     f.append(el("a",{href:"#"+s.id,class:por?"por":""},
-      photo(c[0],F(s,"t")+(s.p?", "+F(s,"p"):""),{loading:i===0?"eager":"lazy",decoding:"async",width:c[1],height:c[2],...(i===0?{fetchpriority:"high"}:{}),style:"object-position:"+(s.pos||(por?"50% 20%":"50% 45%"))}),
+      photo(c[0],F(s,"t")+(s.p?", "+F(s,"p"):""),{loading:eager&&i===0?"eager":"lazy",decoding:"async",width:c[1],height:c[2],...(eager&&i===0?{fetchpriority:"high"}:{}),style:"object-position:"+(s.pos||(por?"50% 20%":"50% 45%"))}),
       el("div",{class:"tx"},el("b",{class:F(s,"t").length>16?"l":""},F(s,"t")),el("span",{},el("i",{},pad(i+1)+" / "+pad(list.length)),[F(s,"p"),F(s,"d")].filter(Boolean).join(" — ")))))});
   w.append(f);return w;
 }
