@@ -496,7 +496,7 @@ function reqForm(){
     el("input",{type:"hidden",name:"_replyto",value:""}),
     el("input",{type:"hidden",name:"_next",value:"https://matteobarbieri.it/?inviato=1#contatti"}),
     el("input",{type:"text",name:"_honey",class:"hp",tabindex:"-1",autocomplete:"off","aria-hidden":"true"}),
-    el("div",{class:"send"},el("button",{class:"btn",type:"submit"},T("Invia richiesta →","Send request →")),el("button",{class:"btn wa-b",type:"button",onclick:()=>waSend(f)},T("Invia su WhatsApp","Send via WhatsApp")),el("span",{class:"msg",role:"status","aria-live":"polite"},T("Ti rispondo con disponibilità e preventivo.","I'll reply with availability and a quote."))),
+    el("div",{class:"send"},el("button",{class:"btn",type:"submit"},T("Invia richiesta →","Send request →")),el("button",{class:"btn wa-b",type:"button",onclick:()=>waSend(f)},T("Invia su WhatsApp","Send via WhatsApp")),el("span",{class:"msg",role:"status","aria-live":"polite"},hasConfirmation?T("Richiesta ricevuta: l’ho presa in carico e ti ho inviato una conferma via email.","Request received: I’ve got it and sent you a confirmation email."):T("Ti rispondo con disponibilità e preventivo.","I’ll reply with availability and a quote."))),
     el("p",{class:"w fm-note"},T("Uso i dati solo per risponderti. ","I only use your data to reply to you. "),el("a",{href:"#privacy"},T("Informativa privacy","Privacy policy"))));
   f.addEventListener("submit",e=>{
     e.preventDefault();const m=f.querySelector(".msg");
