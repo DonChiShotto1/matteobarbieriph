@@ -267,6 +267,8 @@ footer a:hover{color:var(--paper)}
 .sv-h h1.lp{font:500 12px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--signal);margin:0 0 18px}
 
 .intro h1.sm{font:500 12px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);max-width:none}
+
+img{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 </style>
 
 </head><body>
@@ -664,6 +666,9 @@ document.getElementById("lbImg").onclick=closeLB;
 addEventListener("keydown",e=>{if(document.getElementById("lb").hidden)return;if(e.key==="Escape")closeLB();if(e.key==="ArrowRight")stepLB(1);if(e.key==="ArrowLeft")stepLB(-1)});
 let tx=null;const lb=document.getElementById("lb");lb.addEventListener("touchstart",e=>{tx=e.touches[0].clientX},{passive:true});lb.addEventListener("touchend",e=>{if(tx==null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)stepLB(d<0?1:-1);tx=null});
 
+/* foto: niente tasto destro, trascinamento o "salva immagine" */
+document.addEventListener("contextmenu",e=>{if(e.target.tagName==="IMG")e.preventDefault()});
+document.addEventListener("dragstart",e=>{if(e.target.tagName==="IMG")e.preventDefault()});
 chrome();
 consentUI();
 render();
