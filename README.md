@@ -1,9 +1,11 @@
-# Matteo Barbieri Photography
+# Matteo Barbieri Photography — matteobarbieri.it
 
-Portfolio: https://donchishotto1.github.io/matteobarbieriph/
+Sito statico su GitHub Pages. Ogni indirizzo è una pagina HTML vera (/, /live/, /interpol/, /fotografo-concerti-bologna/ ...),
+generata da `build.py` con il prerender, così Google legge testi, titoli e dati strutturati.
 
-## Image delivery
+- `assets/site.js` e `assets/site.css`: tutto il sito (generati dalla build, non modificarli a mano)
+- `assets/fonts/`, `assets/gsap.min.js`, `assets/ScrollTrigger.min.js`, `assets/lenis.min.js`: caratteri e librerie ospitati qui
+- `f/` foto grandi, `t/` anteprime (stesso nome)
+- Firma "© Matteo Barbieri" in basso a destra su tutte le foto tranne la copertina di ogni serie e la copertina della home (`f/hero.jpg`)
 
-On screens up to 760 px wide, portfolio photos use the smaller previews in `t/` when the crop matches the full image. Larger screens and the five crop exceptions use the full JPEGs in `f/`. The full JPEGs remain in place as fallbacks.
-
-When adding a photo, keep its matching preview in `t/`. If its crop differs from the full image, add its filename to `MOBILE_CROP_EXCEPTIONS` in `index.html` so mobile keeps the full version.
+Sorgenti e istruzioni di build: NAS, "Progetti Completi/Claude outputs/Portfolio-src" (LEGGIMI.md).
