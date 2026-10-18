@@ -422,7 +422,7 @@ function render(){
   else v=home();
   document.body.classList.toggle("home",!!v.classList.contains("home-v"));
   app.innerHTML="";app.append(v);
-  document.title=ti?ti+" | Matteo Barbieri Photography":T("Matteo Barbieri Photography — fotografo live e reportage, Ferrara e Bologna","Matteo Barbieri Photography — live music and reportage photographer, Italy");
+  document.title=ti?ti+" | Matteo Barbieri Photography":T("Matteo Barbieri Photography — fotografo di concerti, Ferrara e Bologna","Matteo Barbieri Photography — concert photographer, Ferrara and Bologna, Italy");
   chrome(here);
 }
 consentUI();
