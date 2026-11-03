@@ -127,8 +127,12 @@ function chrome(here){
   document.documentElement.lang=LANG;
   const nav=$("nav");nav.innerHTML="";nav.setAttribute("aria-label",T("Sezioni","Sections"));
   NAV.forEach(([h,i,e])=>nav.append(el("a",{href:U(h),...(h===here?{"aria-current":"page"}:{})},T(i,e))));
+  const ctaOld=$("ctaM");if(ctaOld)ctaOld.remove();
+  if(here!=="contatti"){const go=()=>track("cta_testata",{pagina:ROUTE()||"home"});
+    nav.append(el("a",{class:"cta-top",href:"#contatti",onclick:go},T("Scrivimi","Get in touch")));}
   nav.append(langBtn());
   const mb=$("menuBtn");mb.innerHTML="";mb.append(T("Menu","Menu"),el("span",{"aria-hidden":"true"}));
+  if(here!=="contatti")mb.before(el("a",{class:"cta-top m",id:"ctaM",href:"#contatti",onclick:()=>track("cta_testata",{pagina:ROUTE()||"home"})},T("Scrivimi","Get in touch")));
   mb.onclick=()=>openSheet(true);
   const sh=$("sheet");sh.innerHTML="";
   sh.append(el("div",{class:"hd"},el("a",{class:"logo",href:"/"},"MATTEO",el("i",{"aria-hidden":"true"}),"BARBIERI"),el("button",{type:"button",onclick:()=>openSheet(false)},T("Chiudi","Close"))),
