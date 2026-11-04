@@ -102,7 +102,7 @@ const KINDS={live:["Live","Live"],ritratti:["Ritratti","Portraits"],brand:["Bran
 const LAV=["brand","eventi","reportage","privati","viaggi"];
 
 /* ---------- strumenti ---------- */
-let LANG=(()=>{try{const q=new URLSearchParams(location.search).get("lang");if(q==="en"||q==="it")return q;const v=localStorage.getItem("lang");if(v)return v}catch(e){}return /^it\b/i.test(navigator.language||"it")?"it":"en"})();
+let LANG=(()=>{try{const q=new URLSearchParams(location.search).get("lang");if(q==="en"||q==="it")return q;const v=localStorage.getItem("lang");if(v)return v}catch(e){}return "it"})();
 const T=(it,en)=>LANG==="en"?en:it;
 const L2=a=>T(a[0],a[1]);
 const F=(s,k)=>(LANG==="en"&&s[k+"En"])||s[k];
