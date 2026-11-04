@@ -55,22 +55,25 @@ const STEPS=[["Mi scrivi data, luogo e tipo di lavoro. Ti rispondo con disponibi
  ["Ricevi una selezione già editata, in alta risoluzione e nei formati per web e social.","You receive an edited selection in high resolution, plus web and social formats."]];
 const LANDS=[
  {id:"fotografo-concerti-bologna",ti:"Fotografo concerti a Bologna",tiEn:"Concert photographer in Bologna",
+  x:[["Bologna è una delle due città in cui lavoro. Fotografo nei club e nei festival all'aperto: sotto il palco, tra il pubblico e nei momenti tra un pezzo e l'altro, con l'accredito concordato prima con l'ufficio stampa o con il locale.", "Bologna is one of the two cities I work in. I shoot in clubs and at open-air festivals: under the stage, in the crowd and between songs, with accreditation agreed beforehand with the press office or the venue."], ["Le gallerie escono su Spazio Rock, Booklet Magazine e The Festivals Backpack: se organizzi una data o ti serve una selezione per la stampa, trovi esempi veri nelle serie qui sopra.", "My galleries run on Spazio Rock, Booklet Magazine and The Festivals Backpack: if you are promoting a date or need a selection for the press, the series above are real examples."]],v:1,
   h:["Fotografo di concerti a Bologna","Concert photographer in Bologna"],
   d:["Fotografo concerti a Bologna per band, locali, uffici stampa e testate. Scatto sotto i palchi di Estragon, Locomotiv, Covo Club e Sequoie Music Park: Interpol, Caparezza, Kneecap, Of Monsters and Men, Johnny Marr, The Zen Circus, Marlene Kuntz, Finley, Giorgio Poi. Le mie gallerie escono su Spazio Rock, Booklet Magazine e The Festivals Backpack.","Concert photographer in Bologna for bands, venues, press offices and magazines. I shoot at Estragon, Locomotiv, Covo Club and Sequoie Music Park: Interpol, Caparezza, Kneecap, Of Monsters and Men, Johnny Marr, The Zen Circus, Marlene Kuntz, Finley, Giorgio Poi. My galleries are published by Spazio Rock, Booklet Magazine and The Festivals Backpack."],
   f:s=>s.kind==="live"&&/Bologna/.test(s.p||""),
   q:[["Quanto costa un servizio fotografico a un concerto?","Dipende da durata, luogo e uso delle foto. Mandami data, locale e cosa ti serve: ti rispondo con disponibilità e preventivo."],
      ["Lavori anche per band emergenti e piccoli locali?","Sì: date in club, release party, foto promo e set di videoclip. La selezione arriva già pronta per social, press kit e copertine."],
-     ["In quanto tempo consegni le foto?","I tempi si concordano prima dell'evento. Ricevi una selezione già editata, in alta risoluzione e nei formati per web e social."],
+     ["In quanto tempo consegni le foto?","Di norma entro pochi giorni dall'evento; i tempi precisi si concordano prima. Ricevi una selezione già editata, in alta risoluzione e nei formati per web e social."],
      ["Ti sposti fuori Bologna?","Sì. Lavoro tra Bologna e Ferrara e mi sposto in tutto il Nord Italia e oltre."]]},
  {id:"fotografo-concerti-ferrara",ti:"Fotografo concerti a Ferrara",tiEn:"Concert photographer in Ferrara",
+  x:[["Ferrara è la mia città. Fotografo i concerti dell'estate (Ferrara Summer Festival, Ferrara Sotto le Stelle) e racconto in strada il Ferrara Buskers Festival, con lo stesso metodo che uso a Bologna: accredito concordato, lavoro sotto il palco e consegna rapida.", "Ferrara is my home town. I shoot the summer concerts (Ferrara Summer Festival, Ferrara Sotto le Stelle) and cover the Ferrara Buskers Festival on the street, with the same method I use in Bologna: agreed accreditation, work under the stage and quick delivery."], ["Se organizzi un concerto, una rassegna o una serata e ti serve un fotografo a Ferrara, scrivimi: ti rispondo con disponibilità e preventivo.", "If you are running a concert, a series or a night out and need a photographer in Ferrara, write to me and I will reply with availability and a quote."]],v:1,
   h:["Fotografo di concerti a Ferrara","Concert photographer in Ferrara"],
   d:["Fotografo concerti e live a Ferrara, la mia città. Ho fotografato A Perfect Circle e Jehnny Beth al Ferrara Summer Festival, Ministri e Marlene Kuntz a Ferrara Sotto le Stelle, e racconto in strada il Ferrara Buskers Festival. Disponibile per band, organizzatori, uffici stampa e testate.","Concert and live photographer in Ferrara, my home town. I have shot A Perfect Circle and Jehnny Beth at Ferrara Summer Festival, Ministri and Marlene Kuntz at Ferrara Sotto le Stelle, and the Ferrara Buskers Festival on the street. Available for bands, promoters, press offices and magazines."],
   f:s=>/Ferrara/.test(s.p||"")&&(s.kind==="live"||s.id==="street-buskers"),
   q:[["Quanto costa un servizio fotografico a un concerto?","Dipende da durata, luogo e uso delle foto. Mandami data, luogo e cosa ti serve: ti rispondo con disponibilità e preventivo."],
      ["Copri anche festival di più giorni?","Sì: una o più giornate, con artisti, pubblico, allestimenti e dietro le quinte, e gallerie pronte per comunicati, sito e social."],
-     ["In quanto tempo consegni le foto?","I tempi si concordano prima dell'evento. Ricevi una selezione già editata, in alta risoluzione e nei formati per web e social."],
+     ["In quanto tempo consegni le foto?","Di norma entro pochi giorni dall'evento; i tempi precisi si concordano prima. Ricevi una selezione già editata, in alta risoluzione e nei formati per web e social."],
      ["Lavori anche fuori Ferrara?","Sì. Lavoro tra Ferrara e Bologna e mi sposto in tutto il Nord Italia e oltre."]]},
  {id:"fotografo-festival",ti:"Fotografo per festival musicali",tiEn:"Music festival photographer",
+  x:[["Per un festival ragiono sull'intera edizione: i momenti sul palco, il pubblico, gli allestimenti e il dietro le quinte, così hai un archivio completo per il resoconto, il sito e la promozione dell'anno dopo.", "For a festival I think about the whole edition: the moments on stage, the crowd, the production and what happens backstage, so you have a complete archive for the report, the website and next year's promotion."], ["Se serve, le prime foto arrivano mentre il festival è ancora in corso; il resto della selezione, di norma, entro pochi giorni.", "If needed, the first photos arrive while the festival is still going; the rest of the selection usually follows within a few days."]],v:1,
   h:["Fotografo per festival musicali","Music festival photographer"],
   d:["Copertura fotografica di festival musicali: palco, pubblico, atmosfera e dietro le quinte, tutto quello che serve a raccontare l'edizione e a vendere la prossima. Ho fotografato Ferrara Summer Festival, Ferrara Sotto le Stelle, Sequoie Music Park, Frogstock, Festa Reggio e Ferrara Buskers Festival.","Photo coverage for music festivals: stage, crowd, atmosphere and behind the scenes, everything you need to tell this year's story and sell the next one. I have shot Ferrara Summer Festival, Ferrara Sotto le Stelle, Sequoie Music Park, Frogstock, Festa Reggio and Ferrara Buskers Festival."],
   f:s=>/Festival|Sotto le Stelle|Sequoie|Frogstock|Festa Reggio|Fest/.test(s.p||"")||s.id==="street-buskers",
@@ -79,6 +82,7 @@ const LANDS=[
      ["Lavori anche per uffici stampa e testate?","Sì: fotografo per Spazio Rock, Booklet Magazine e The Festivals Backpack, anche con il testo della recensione."],
      ["Quanto costa?","Dipende da giornate, orari e uso delle foto. Scrivimi date e luogo e ti mando disponibilità e preventivo."]]},
  {id:"foto-promozionali-band",ti:"Foto promozionali per band e artisti",tiEn:"Promo photos for bands and artists",
+  x:[["Per una band lavoro su ritratti per stampa e streaming, copertine, press kit e set di videoclip. Mi piace lavorare anche nelle sale prova e negli studi di registrazione, dove la luce e l'atmosfera sono quelle vere del gruppo.", "For a band I work on portraits for press and streaming, covers, press kits and music video sets. I also like working in rehearsal rooms and recording studios, where the light and atmosphere are the band's own."], ["Prima dello shooting ci accordiamo su luogo, stile e uso delle immagini, così la selezione finale è pronta per Spotify, social e comunicati.", "Before the shoot we agree on place, style and use of the images, so the final selection is ready for Spotify, social media and press releases."]],
   h:["Foto promozionali per band e artisti","Promo photos for bands and artists"],
   d:["Foto promo, ritratti per stampa e streaming, set di videoclip e backstage per band e artisti. Lo stesso sguardo che porto sotto i palchi, applicato alle immagini che ti servono per uscire: copertine, press kit, Spotify e social. Fotografo anche sale prova e studi di registrazione.","Promo photos, portraits for press and streaming, music video sets and backstage for bands and artists. The same eye I bring to live shows, applied to the images you need for a release: covers, press kits, Spotify and social media. I also shoot rehearsal rooms and recording studios."],
   f:s=>s.kind==="ritratti",
@@ -87,6 +91,7 @@ const LANDS=[
      ["Fotografi anche i concerti della band?","Sì: copertura live di date e release party, così hai foto promo e live con lo stesso stile."],
      ["Quanto costa?","Dipende da durata, luogo e numero di foto. Scrivimi cosa ti serve e ti mando un preventivo."]]},
  {id:"fotografo-eventi-aziendali",ti:"Fotografo per eventi aziendali e brand",tiEn:"Corporate event and brand photographer",
+  x:[["Per aziende e brand copro convegni, roadshow, inaugurazioni e presentazioni di prodotto con immagini naturali, senza far mettere in posa le persone, anche in trasferta.", "For companies and brands I cover conferences, roadshows, openings and product launches with natural images, without making people pose, travel included."], ["Lavoro anche su interni e still life di prodotto, e per famiglie su battesimi e ritratti. Scrivimi cosa ti serve e ti propongo tempi e modalità.", "I also shoot interiors and product still life, and for families christenings and portraits. Tell me what you need and I will suggest timing and approach."]],
   h:["Fotografo per eventi aziendali e brand","Corporate event and brand photographer"],
   d:["Lo stesso sguardo dei concerti applicato a convegni, roadshow, workshop, inaugurazioni, brand, prodotti e interni: sale prova, studi di registrazione, locali. Immagini naturali, senza pose forzate, per comunicati, sito e social. Tra Ferrara e Bologna, con trasferte in tutta Italia.","The same eye I bring to concerts, applied to conferences, roadshows, workshops, openings, brands, products and interiors: rehearsal rooms, recording studios, venues. Natural, unstaged images for press releases, websites and social media. Based between Ferrara and Bologna, travelling across Italy."],
   f:s=>s.kind==="eventi"||s.kind==="brand",
@@ -263,6 +268,7 @@ function listPage(kind){
   v.firstChild.style.marginTop="clamp(24px,5vw,64px)";
   return v;
 }
+const altOf=(s,i)=>[F(s,"t")+(s.kind==="live"?T(", concerto dal vivo",", live concert"):""),F(s,"p"),F(s,"d")].filter(Boolean).join(", ")+" ("+T("foto","photo")+" "+(i+1)+")";
 function series(s){
   const v=el("article",{class:"g"});
   const pub=s.pub&&s.pub.length?el("div",{class:"pub"},T("Pubblicato su","Published in"),...s.pub.map(([o,u])=>el("a",{href:u,...ext},o))):null;
@@ -272,11 +278,11 @@ function series(s){
     const a=ims[k],b=ims[k+1];
     if(por(a)&&por(b)&&k>0){
       const f=el("figure",{class:"pair"});
-      [a,b].forEach((x,j)=>{const i=k+j;f.append(el("button",{type:"button","aria-label":T("Ingrandisci foto ","Enlarge photo ")+(i+1),onclick:()=>openLB(s,i)},el("img",{src:"f/"+x[0]+".jpg",alt:tt+", "+T("foto","photo")+" "+(i+1),loading:"lazy",width:x[1],height:x[2]})))});
+      [a,b].forEach((x,j)=>{const i=k+j;f.append(el("button",{type:"button","aria-label":T("Ingrandisci foto ","Enlarge photo ")+(i+1),onclick:()=>openLB(s,i)},el("img",{src:"f/"+x[0]+".jpg",alt:altOf(s,i),loading:"lazy",width:x[1],height:x[2]})))});
       seq.append(f);k+=2;
     }else{
       const i=k;
-      seq.append(el("figure",{class:por(a)?"p":"l"},el("img",{src:"f/"+a[0]+".jpg",alt:tt+", "+T("foto","photo")+" "+(i+1),loading:i<2?"eager":"lazy",width:a[1],height:a[2],onclick:()=>openLB(s,i)}),el("figcaption",{},pad(i+1)+" / "+pad(ims.length))));k+=1;
+      seq.append(el("figure",{class:por(a)?"p":"l"},el("img",{src:"f/"+a[0]+".jpg",alt:altOf(s,i),loading:i<2?"eager":"lazy",width:a[1],height:a[2],onclick:()=>openLB(s,i)}),el("figcaption",{},pad(i+1)+" / "+pad(ims.length))));k+=1;
     }
   }
   v.append(seq);
@@ -289,13 +295,22 @@ function series(s){
   return v;
 }
 const steps=()=>el("div",{class:"steps"},...STEPS.map((x,i)=>el("div",{},el("b",{},pad(i+1)),el("span",{},L2(x)))));
+function landInfo(L){
+  const w=el("section",{class:"loc"},el("h2",{},T("Come lavoro","How I work")));
+  (L.x||[]).forEach(p=>w.append(el("p",{},L2(p))));
+  if(L.v)w.append(el("p",{},el("b",{},T("Locali e festival: ","Venues and festivals: ")),VENUES.join(", ")+"."));
+  w.append(el("p",{},el("b",{},T("Dove escono le foto: ","Where the photos run: ")),...PUBS.flatMap((p,i)=>[i?", ":"",el("a",{href:p.u,...ext},p.o)]),T(". Gallerie e recensioni nella pagina ",". Galleries and reviews on the "),el("a",{href:U("pubblicazioni")},T("Pubblicazioni","Press page")),"."));
+  w.append(el("p",{},el("b",{},T("Consegna e preventivo: ","Delivery and quote: ")),T("una selezione già editata, in alta risoluzione e nei formati per web e social, di norma entro pochi giorni dall'evento. Il preventivo è su richiesta: scrivimi data, luogo e tipo di lavoro dal pulsante in alto.","an edited selection in high resolution, with web and social formats, usually within a few days of the event. Quotes on request: send me the date, place and type of job using the button at the top.")));
+  return w;
+}
 function landing(L){
   const v=el("div",{class:"g"});
   // niente titolone in alto (scelta di Matteo): il titolo H1 sta sulle domande frequenti
-  v.append(el("header",{class:"ph-h txt"},el("p",{class:"lead-l"},L2(L.d))));
+  v.append(el("header",{class:"ph-h txt"},el("h1",{class:"sr"},L2(L.h)),el("p",{class:"lead-l"},L2(L.d))));
   v.append(fsBlock(T("Esempi","Examples"),S.filter(L.f),true));
   v.append(steps());
-  if(LANG==="it")v.append(el("section",{class:"faq"},el("h1",{},L.h[0]+": domande frequenti"),...L.q.map(([q,a])=>el("details",{},el("summary",{},q),el("p",{},a)))));
+  v.append(landInfo(L));
+  if(LANG==="it")v.append(el("section",{class:"faq"},el("h2",{},"Domande frequenti"),...L.q.map(([q,a])=>el("details",{},el("summary",{},q),el("p",{},a)))));
   v.append(el("p",{class:"more"},T("Vedi anche: ","See also: "),...LANDS.filter(x=>x!==L).flatMap((x,i)=>[i?" · ":"",el("a",{href:U(x.id)},T(x.ti,x.tiEn))])," · ",el("a",{href:U("pubblicazioni")},T("Pubblicazioni","Press"))));
   return v;
 }
